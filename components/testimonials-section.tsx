@@ -65,11 +65,17 @@ export default function TestimonialsSection() {
     ]
 
     return (
-        <section ref={sectionRef} className="py-24 bg-white overflow-hidden">
+        <section ref={sectionRef} className="py-24 bg-slate-50 overflow-hidden">
             <div className="container mx-auto px-4 mb-16">
-                <h2 className="text-4xl md:text-5xl font-bold text-slate-900 text-center mb-6">
-                    Trusted by Industry Leaders
-                </h2>
+                <div className="flex flex-col items-center text-center">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-sm font-semibold mb-6">
+                        <div className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
+                        <span>Success Stories</span>
+                    </div>
+                    <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+                        Trusted by Industry Leaders
+                    </h2>
+                </div>
                 <p className="text-center text-slate-600 max-w-2xl mx-auto">
                     Our reputation is built on specific, measurable results and long-term partnerships with our clients.
                 </p>

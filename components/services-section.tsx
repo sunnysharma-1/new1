@@ -137,7 +137,7 @@ export default function ServicesSection() {
   ]
 
   return (
-    <section ref={sectionRef} className="relative bg-slate-50">
+    <section ref={sectionRef} className="relative bg-white py-24">
       <div ref={wrapperRef} className="h-screen w-full flex flex-col justify-center overflow-hidden relative">
 
         {/* Background Gradients */}
@@ -146,7 +146,10 @@ export default function ServicesSection() {
         <div className="container mx-auto max-w-7xl px-4 md:px-6 relative z-10 mb-8 md:mb-12">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
             <div className="max-w-2xl">
-              <span className="text-blue-600 font-semibold tracking-wide uppercase text-sm mb-3 block">Our Expertise</span>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-sm font-semibold mb-6">
+                <div className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
+                <span>Our Capabilities</span>
+              </div>
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-slate-900 leading-tight">
                 Comprehensive <br /><span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Security Solutions</span>
               </h2>

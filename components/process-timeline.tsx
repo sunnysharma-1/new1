@@ -65,10 +65,14 @@ export default function ProcessTimeline() {
     ]
 
     return (
-        <section ref={sectionRef} className="py-24 bg-slate-50 relative overflow-hidden">
+        <section ref={sectionRef} className="py-24 bg-white relative overflow-hidden">
 
             <div className="container mx-auto px-4 max-w-6xl relative z-10">
                 <div className="text-center mb-20">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-sm font-semibold mb-6">
+                        <div className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
+                        <span>How We Work</span>
+                    </div>
                     <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">How We Secure Your World</h2>
                     <p className="text-slate-500 max-w-2xl mx-auto">A seamless three-step process to total peace of mind.</p>
                 </div>

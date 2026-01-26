@@ -79,7 +79,7 @@ export default function AboutSection() {
     }, [])
 
     return (
-        <section ref={sectionRef} className="py-24 bg-white overflow-hidden relative" id="why-us">
+        <section ref={sectionRef} className="py-24 bg-slate-50 overflow-hidden relative" id="why-us">
             {/* Pattern Background */}
             <div className="absolute top-0 right-0 w-1/3 h-full opacity-[0.03] bg-[radial-gradient(#2563eb_1.5px,transparent_1.5px)] [background-size:24px_24px] pointer-events-none" />
 
