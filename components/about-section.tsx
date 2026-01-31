@@ -9,9 +9,9 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function AboutSection() {
     const sectionRef = useRef(null)
-    const counterRef1 = useRef<HTMLSpanElement>(null)
-    const counterRef2 = useRef<HTMLSpanElement>(null)
-    const counterRef3 = useRef<HTMLSpanElement>(null)
+    const counterRef1 = useRef<HTMLParagraphElement>(null)
+    const counterRef2 = useRef<HTMLParagraphElement>(null)
+    const counterRef3 = useRef<HTMLParagraphElement>(null)
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -30,8 +30,8 @@ export default function AboutSection() {
 
             // Metric Counters
             const metrics = [
-                { ref: counterRef1, val: 15, suffix: '+' },
-                { ref: counterRef2, val: 500, suffix: '+' },
+                { ref: counterRef1, val: 14, suffix: '+' },
+                { ref: counterRef2, val: 50, suffix: '+' },
                 { ref: counterRef3, val: 100, suffix: '%' }
             ]
 
@@ -95,16 +95,16 @@ export default function AboutSection() {
                             </div>
 
                             <h2 className="reveal-text text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
-                                More Than Security. <br />
-                                <span className="text-blue-600">We Are Your Strategic Partner.</span>
+                                About Rangerss. <br />
+                                <span className="text-blue-600">Established Excellence since 2012.</span>
                             </h2>
 
                             <p className="reveal-text text-slate-600 text-lg leading-relaxed border-l-4 border-blue-100 pl-6">
-                                Axis Security isn't just a vendor; we integrate seamlessly into your operations. With a close-knit team of expert scouts and area managers, we bring an <span className="font-semibold text-slate-900">"eagle-eye approach"</span> to modern safety challenges.
+                                Rangerss Security & Surveillance provides cost-effective and comprehensive security solutions for complex environments across India. Under the leadership of Chairman <span className="font-semibold text-slate-900">Smt. Muskan Khutliwala</span> and MD & CEO <span className="font-semibold text-slate-900">Mr. Aslam Khutliwala</span>, we focus on military-grade performance and customer satisfaction.
                             </p>
 
                             <p className="reveal-text text-slate-600 leading-relaxed">
-                                From verified physical deployment to intelligence-led strategy, our mission is simple: <strong>Uncompromised Safety</strong>. We ride herd on every establishment, ensuring our veteran guards perform at the highest level.
+                                Headquartered in Silvassa, we use up-to-the-minute technology and an <strong>"eagle-eye approach"</strong> to manage squads. Our area managers conduct thrice-daily checks and twice-weekly night visits to ensure uncompromised safety.
                             </p>
                         </div>
 
@@ -116,11 +116,11 @@ export default function AboutSection() {
                             </div>
                             <div>
                                 <p className="text-3xl font-bold text-slate-900 mb-1" ref={counterRef2}>0+</p>
-                                <p className="text-sm font-semibold text-slate-500 uppercase tracking-wide">Secure Sites</p>
+                                <p className="text-sm font-semibold text-slate-500 uppercase tracking-wide">Clients</p>
                             </div>
                             <div>
                                 <p className="text-3xl font-bold text-slate-900 mb-1" ref={counterRef3}>0%</p>
-                                <p className="text-sm font-semibold text-slate-500 uppercase tracking-wide">Client Ret.</p>
+                                <p className="text-sm font-semibold text-slate-500 uppercase tracking-wide">Satisfaction</p>
                             </div>
                         </div>
                     </div>
@@ -153,7 +153,7 @@ export default function AboutSection() {
                                 <Shield className="w-8 h-8" />
                                 <div>
                                     <p className="text-xs font-medium opacity-80 uppercase">Verified</p>
-                                    <p className="font-bold">Axis Standard</p>
+                                    <p className="font-bold">Rangerss Standard</p>
                                 </div>
                             </div>
                         </div>

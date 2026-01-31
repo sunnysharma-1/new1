@@ -102,7 +102,7 @@ export default function Header({ theme = 'dark' }: HeaderProps) {
               <Shield className="w-4 h-4" />
             </div>
             <span className={`font-bold tracking-tight text-xl transition-colors duration-300 ${isTop ? (theme === 'light' ? 'text-slate-900' : 'text-white') : 'text-slate-900'}`}>
-              AXIS
+              RANGERSS
             </span>
           </Link>
 

@@ -149,9 +149,9 @@ export default function ContactSection() {
 
             <div className="space-y-8 contact-reveal">
               {[
-                { icon: Phone, title: 'Direct Line', content: '+91 99981 87871', sub: '99981 87875 / 99981 87876' },
-                { icon: Mail, title: 'Email Us', content: 'admin@axissecurity.in', sub: 'Priority Response Team' },
-                { icon: MapPin, title: 'Visit HQ', content: 'Shop No. 107, Sam Super Market', sub: 'Near Kilvani Naka, Silvassa - 396230' }
+                { icon: Phone, title: 'Direct Line', content: '+91 99981 87871', sub: 'Available 24/7' },
+                { icon: Mail, title: 'Email Us', content: 'info@rangerss.in', sub: 'Priority Response Team' },
+                { icon: MapPin, title: 'Headquarters', content: 'Ground Floor, Vee Bee Mall', sub: 'Samarvarni Road, Silvassa-396230' }
               ].map((item, idx) => (
                 <div key={idx} className="group flex items-start gap-6">
                   <div className="w-14 h-14 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-blue-600 transition-all duration-300 shadow-lg group-hover:scale-110 group-hover:shadow-blue-600/25">

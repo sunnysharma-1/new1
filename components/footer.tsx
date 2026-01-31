@@ -14,14 +14,14 @@ export default function Footer() {
                 <Shield className="w-6 h-6" />
               </div>
               <div>
-                <div className="font-bold">Axis Security</div>
-                <div className="text-xs text-white/70">Trusted Protection</div>
+                <div className="font-bold">Rangerss Security</div>
+                <div className="text-xs text-white/70">We Make You Feel Secure</div>
               </div>
             </div>
             <ul className="space-y-4">
               <li className="flex items-center gap-3 text-slate-400">
                 <MapPin className="w-5 h-5 text-blue-500 flex-shrink-0" />
-                <span>Shop No. 107, Sam Super Market,<br />Near Kilvani Naka, Silvassa - 396230</span>
+                <span>Ground Floor, Vee Bee Mall,<br />Samarvarni Road, Silvassa-396230</span>
               </li>
               <li className="flex items-center gap-3 text-slate-400">
                 <Phone className="w-5 h-5 text-blue-500 flex-shrink-0" />
@@ -29,7 +29,7 @@ export default function Footer() {
               </li>
               <li className="flex items-center gap-3 text-slate-400">
                 <Mail className="w-5 h-5 text-blue-500 flex-shrink-0" />
-                <span>admin@axissecurity.in</span>
+                <span>info@rangerss.in</span>
               </li>
             </ul>
           </div>
@@ -115,7 +115,7 @@ export default function Footer() {
         {/* Social Links & Bottom */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-white/70">
-            © {currentYear} Axis Security. All rights reserved.
+            © {currentYear} Rangerss Security & Surveillance. All rights reserved.
           </p>
           <div className="flex gap-4">
             <a

@@ -10,35 +10,35 @@ gsap.registerPlugin(ScrollTrigger)
 const features = [
   {
     id: 1,
-    title: '24/7 Command Center',
-    description: 'Our state-of-the-art SOC (Security Operations Center) never sleeps. We integrate real-time video surveillance, GPS tracking, and AI-driven threat detection to ensure rapid response to any incident, anywhere.',
-    icon: Radio,
+    title: 'Philosophy',
+    description: 'We provide cost-effective and comprehensive security solutions for complex environments, focusing on military-grade performance and total customer satisfaction.',
+    icon: Award,
     color: 'bg-blue-600',
-    image: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1557804506-669714d2e9d8?w=800&q=80'
   },
   {
     id: 2,
-    title: 'Elite Personnel Training',
-    description: 'Every guard undergoes a rigorous 300-hour training program, including conflict de-escalation, first aid, and tactical response. We hire only the top 5% of applicants to ensure your safety.',
-    icon: Users,
-    color: 'bg-indigo-600',
-    image: 'https://images.unsplash.com/photo-1571844299884-deef36c3e4e7?w=800&q=80'
-  },
-  {
-    id: 3,
-    title: 'Next-Gen Technology',
-    description: 'We leverage cutting-edge security tech, from biometric access controls to thermal imaging drones. Our digital reporting system gives you instant transparency into patrol logs and incident reports.',
+    title: 'Technology',
+    description: 'We use up-to-the-minute technology to manage and supervise squads, ensuring transparency by sharing performance data with clients every 90 days.',
     icon: Zap,
-    color: 'bg-violet-600',
+    color: 'bg-indigo-600',
     image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80'
   },
   {
+    id: 3,
+    title: 'Rigorous Training',
+    description: 'All personnel undergo intensive training covering physical fitness, fire fighting, first aid, and intelligence gathering before joining our ranks.',
+    icon: Users,
+    color: 'bg-violet-600',
+    image: 'https://images.unsplash.com/photo-1571844299884-deef36c3e4e7?w=800&q=80'
+  },
+  {
     id: 4,
-    title: 'Licensed & Compliant',
-    description: 'Fully bonded, insured, and compliant with all local and federal regulations. We handle the liability so you can focus on your core business without worry.',
-    icon: Shield,
+    title: 'Eagle-Eye Supervision',
+    description: 'Our area managers conduct thrice-daily checks and twice-weekly night visits during initial deployment to ensure the highest standards of vigilance.',
+    icon: Radio,
     color: 'bg-emerald-600',
-    image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80'
+    image: 'https://images.unsplash.com/photo-1626081395982-1e96a461c28c?w=800&q=80'
   },
 ]
 
@@ -100,15 +100,15 @@ export default function FeaturesSection() {
 
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-sm font-bold tracking-wide uppercase mb-6 w-fit">
               <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
-              Why Choose Axis
+              Our Approach
             </div>
 
             <h2 className="text-4xl md:text-6xl font-extrabold tracking-tight text-slate-900 mb-6 leading-[1.1]">
-              The <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">Strategic Advantage</span>
+              Core Services <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">& Philosophy</span>
             </h2>
 
             <p className="text-lg md:text-xl text-slate-500 leading-relaxed mb-8 max-w-md">
-              We don't just supply manpower; we engineer complete security ecosystems designed to protect your assets and peace of mind.
+              Rangerss Security delivers military-grade performance through rigorous training, advanced technology, and a commitment to customer satisfaction.
             </p>
 
             <div className="flex flex-col gap-4">

@@ -7,7 +7,8 @@ import ServicesSection from '@/components/services-section'
 import FeaturesSection from '@/components/features-section'
 import TestimonialsSection from '@/components/testimonials-section'
 import ContactSection from '@/components/contact-section'
-import ClientLogos from '@/components/client-logos'
+import ClientsSection from '@/components/clients-section'
+import ComplianceSection from '@/components/compliance-section'
 import ProcessTimeline from '@/components/process-timeline'
 
 export default function Home() {
@@ -15,12 +16,13 @@ export default function Home() {
     <main className="min-h-screen bg-slate-50">
       <Header />
       <HeroSection />
-      <ClientLogos />
       <AboutSection />
-      <ServicesSection />
       <FeaturesSection />
+      <ServicesSection />
+      <ClientsSection />
       <ProcessTimeline />
       <TestimonialsSection />
+      <ComplianceSection />
       <ContactSection />
       <Footer />
     </main>

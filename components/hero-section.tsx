@@ -93,11 +93,11 @@ export default function HeroSection() {
       >
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/30 border border-blue-800 text-blue-400 text-sm font-semibold mb-6 backdrop-blur-md">
           <div className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-          <span className="tracking-wide uppercase">Operational 24/7</span>
+          <span className="tracking-wide uppercase">We Make You Feel Secure</span>
         </div>
 
-        <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold font-serif text-white tracking-tighter leading-none whitespace-nowrap mb-8 mix-blend-overlay">
-          Vigilance <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500">Uncompromised</span>
+        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-serif text-white tracking-tighter leading-none whitespace-nowrap mb-8 mix-blend-overlay">
+          Rangerss <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500">Security & Surveillance</span>
         </h1>
 
         <div className="flex justify-center gap-4 mt-8 pointer-events-auto">
