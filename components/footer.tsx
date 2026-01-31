@@ -21,7 +21,7 @@ export default function Footer() {
             <ul className="space-y-4">
               <li className="flex items-center gap-3 text-slate-400">
                 <MapPin className="w-5 h-5 text-blue-500 flex-shrink-0" />
-                <span>Ground Floor, Vee Bee Mall,<br />Samarvarni Road, Silvassa-396230</span>
+                <span>Ground Floor, Vee Bee Mall, Samarvarni Road,<br />Tokarkhada, Silvassa-396230, D&NH</span>
               </li>
               <li className="flex items-center gap-3 text-slate-400">
                 <Phone className="w-5 h-5 text-blue-500 flex-shrink-0" />
@@ -102,10 +102,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:admin@axissecurity.in"
+                  href="mailto:info@rangerss.in"
                   className="text-white hover:text-accent transition"
                 >
-                  admin@axissecurity.in
+                  info@rangerss.in
                 </a>
               </li>
             </ul>
@@ -142,6 +142,6 @@ export default function Footer() {
           </div>
         </div>
       </div>
-    </footer>
+    </footer >
   )
 }
