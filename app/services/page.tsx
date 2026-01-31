@@ -7,7 +7,7 @@ import ContactSection from '@/components/contact-section'
 export default function ServicesPage() {
     return (
         <main className="min-h-screen bg-white">
-            <Header />
+            <Header theme="light" />
             <ServiceScrollShowcase />
             <div className="bg-white">
                 <ContactSection />
