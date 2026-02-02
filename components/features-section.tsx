@@ -11,34 +11,34 @@ const features = [
   {
     id: 1,
     title: 'Smart Tech Integration',
-    description: 'We use smart, easy-to-use tech for consistent operations. Digital attendance, shift tracking, and patrol validation cut down on gaps and boost discipline with clear audit logs.',
+    description: 'We leverage advanced guard monitoring systems to ensure operational integrity. Our digital infrastructure provides real-time tracking of attendance, precise shift logging, and geo-tagged patrol validation, creating an undeniable digital audit trail that eliminates coverage gaps and enhances strict discipline across all sites.',
     icon: Zap,
     color: 'bg-blue-600',
-    image: 'https://images.unsplash.com/photo-1557804506-669714d2e9d8?w=800&q=80'
+    image: '/images/apex-warehouse-patrol.jpg'
   },
   {
     id: 2,
-    title: 'Rigorous Training',
-    description: 'Training is the core of our standards. Each recruit goes through a structured program focusing on discipline, alertness, fire safety, and emergency response before deployment.',
+    title: 'Rigorous Training Academy',
+    description: 'Excellence is not accidental; it is trained. Every Axis security officer undergoes an intensive local training regime covering physical fitness, fire safety protocols, emergency response tactics, and soft-skill courtesy. This ensures that every officer deployed is not just a guard, but a capable first-responder.',
     icon: Users,
     color: 'bg-indigo-600',
-    image: 'https://images.unsplash.com/photo-1571844299884-deef36c3e4e7?w=800&q=80'
+    image: '/images/apex-march-blue.jpg'
   },
   {
     id: 3,
     title: 'Transparent Accountability',
-    description: 'We keep incident reports structured and records maintained. Regular performance summaries help us spot problems early and fix things quickly without complications.',
+    description: 'Our clients are never in the dark. We maintain structured incident reporting and open communication channels. Through regular performance summaries and transparent operational metrics, we proactively identify potential vulnerabilities and address them before they become liabilities.',
     icon: Award,
     color: 'bg-violet-600',
-    image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&q=80'
+    image: '/images/apex-salute-group-2.jpg'
   },
   {
     id: 4,
-    title: 'Active Supervision',
-    description: 'Our operational excellence ensures consistency through defined procedures, smart monitoring, and surprise inspections to maintain service quality.',
+    title: 'Active Field Supervision',
+    description: 'Supervision is the backbone of consistency. Our dedicated Field Officers and Area Managers conduct frequent scheduled and surprise inspections—day and night. This "active supervision" model ensures that standards never slip and that every post remains alert, compliant, and professional 24/7.',
     icon: Radio,
     color: 'bg-emerald-600',
-    image: 'https://images.unsplash.com/photo-1626081395982-1e96a461c28c?w=800&q=80'
+    image: '/images/apex-inspection-vip.jpg'
   },
 ]
 

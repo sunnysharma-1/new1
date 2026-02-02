@@ -10,6 +10,7 @@ import FAQSection from '@/components/faq-section'
 import ContactSection from '@/components/contact-section'
 import AgencyDifferentiators from '@/components/agency-differentiators'
 import ProcessTimeline from '@/components/process-timeline'
+import FeaturesSection from '@/components/features-section'
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <ServicesSection />
       <ClientsSection />
       <AgencyDifferentiators />
+      <FeaturesSection />
       <ProcessTimeline />
       <FAQSection />
       <ContactSection />
