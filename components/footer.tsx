@@ -6,30 +6,33 @@ export default function Footer() {
   return (
     <footer className="bg-primary text-white">
       <div className="container mx-auto px-4 py-12">
-        <div className="grid md:grid-cols-4 gap-8 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-8 mb-8 text-center md:text-left">
           {/* Brand (now with contact info) */}
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-lg bg-white/20 flex items-center justify-center">
-                <Shield className="w-6 h-6" />
+          <div className="col-span-2 md:col-span-1 flex flex-col items-center md:items-start">
+            <div className="flex items-center gap-2 mb-6">
+              <div className="h-14 w-auto bg-white rounded-lg p-2 flex items-center justify-center shadow-lg">
+                <img
+                  src="/images/axis-logo.jpg"
+                  alt="Axis Security"
+                  className="h-full w-auto object-contain"
+                />
               </div>
-              <div>
-                <div className="font-bold">Rangerss Security</div>
-                <div className="text-xs text-white/70">We Make You Feel Secure</div>
-              </div>
+            </div>
+            <div className="mb-6">
+              <div className="text-xs text-white/70">Discipline. Protection. Excellence.</div>
             </div>
             <ul className="space-y-4">
               <li className="flex items-center gap-3 text-slate-400">
                 <MapPin className="w-5 h-5 text-blue-500 flex-shrink-0" />
-                <span>Ground Floor, Vee Bee Mall, Samarvarni Road,<br />Tokarkhada, Silvassa-396230, D&NH</span>
+                <span>Dadra & Nagar Haveli,<br />India</span>
               </li>
               <li className="flex items-center gap-3 text-slate-400">
                 <Phone className="w-5 h-5 text-blue-500 flex-shrink-0" />
-                <span>+91 99981 87871</span>
+                <span>+91 9998187871</span>
               </li>
               <li className="flex items-center gap-3 text-slate-400">
                 <Mail className="w-5 h-5 text-blue-500 flex-shrink-0" />
-                <span>info@rangerss.in</span>
+                <span>admin@axissecurity.in</span>
               </li>
             </ul>
           </div>
@@ -46,7 +49,7 @@ export default function Footer() {
                   Services
                 </a>
               </li>
-              <li>
+              {/* <li>
                 <a
                   href="#pricing"
                   className="text-white/70 hover:text-white transition"
@@ -61,7 +64,7 @@ export default function Footer() {
                 >
                   Why Choose Us
                 </a>
-              </li>
+              </li> */}
               <li>
                 <a
                   href="#contact"
@@ -86,11 +89,11 @@ export default function Footer() {
           </div>
 
           {/* Contact */}
-          <div>
+          <div className="col-span-2 md:col-span-1 flex flex-col items-center md:items-start">
             <h4 className="font-semibold mb-4">Contact Us</h4>
             <ul className="space-y-3 text-sm">
               <li className="text-white/70">
-                Shop No. 107, Silvassa
+                Dadra & Nagar Haveli
               </li>
               <li>
                 <a
@@ -102,10 +105,10 @@ export default function Footer() {
               </li>
               <li>
                 <a
-                  href="mailto:info@rangerss.in"
+                  href="mailto:admin@axissecurity.in"
                   className="text-white hover:text-accent transition"
                 >
-                  info@rangerss.in
+                  admin@axissecurity.in
                 </a>
               </li>
             </ul>
@@ -115,7 +118,7 @@ export default function Footer() {
         {/* Social Links & Bottom */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-white/70">
-            © {currentYear} Rangerss Security & Surveillance. All rights reserved.
+            © {currentYear} Axis Security & Surveillance. All rights reserved.
           </p>
           <div className="flex gap-4">
             <a

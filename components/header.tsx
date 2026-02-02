@@ -81,8 +81,8 @@ export default function Header({ theme = 'dark' }: HeaderProps) {
 
   const navItems = [
     { label: 'Services', href: '/services' },
-    { label: 'Why Axis', href: '/#features' },
-    { label: 'About', href: '/#about' }, // Assuming about section exists or will exist
+    // { label: 'Why Axis', href: '/#features' },
+    // { label: 'About', href: '/#about' },
     { label: 'Contact', href: '/contact' },
   ]
 
@@ -96,14 +96,15 @@ export default function Header({ theme = 'dark' }: HeaderProps) {
       >
         <div className="container mx-auto px-6 md:px-12 flex justify-between items-center">
 
-          {/* Minimalist Logo */}
+          {/* Official Logo */}
           <Link href="/" onClick={() => handleNavClick('hero')} className="group flex items-center gap-2">
-            <div className={`w-8 h-8 rounded-full flex items-center justify-center transition-colors duration-300 ${isTop ? (theme === 'light' ? 'bg-blue-600 text-white' : 'bg-white text-slate-900') : 'bg-blue-600 text-white'}`}>
-              <Shield className="w-4 h-4" />
+            <div className={`h-12 w-auto bg-white rounded-md p-1 flex items-center justify-center transition-all duration-300 ${isTop && theme === 'dark' ? 'opacity-90 hover:opacity-100' : 'shadow-sm'}`}>
+              <img
+                src="/images/axis-logo.jpg"
+                alt="Axis Security"
+                className="h-full w-auto object-contain"
+              />
             </div>
-            <span className={`font-bold tracking-tight text-xl transition-colors duration-300 ${isTop ? (theme === 'light' ? 'text-slate-900' : 'text-white') : 'text-slate-900'}`}>
-              RANGERSS
-            </span>
           </Link>
 
           {/* Center Nav - Desktop */}

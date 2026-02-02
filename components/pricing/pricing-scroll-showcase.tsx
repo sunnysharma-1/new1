@@ -106,15 +106,15 @@ export default function PricingScrollShowcase() {
     const tiers = [
         {
             id: 'tier-1',
-            name: 'Standard Guarding',
+            name: 'Plan One',
             price: 'Custom Quote',
-            description: 'Essential security presence for static posts, retail locations, and reception areas.',
+            description: 'Description of the first plan tier. Suitable for basic requirements.',
             features: [
-                'Uniformed Security Officers',
-                'Access Control Management',
-                'Regular Patrol Reports',
-                'Incident Response',
-                'Visitor Logging'
+                'Feature One',
+                'Feature Two',
+                'Feature Three',
+                'Feature Four',
+                'Feature Five'
             ],
             image: 'https://images.unsplash.com/photo-1584465437898-75c7426615b3?w=800&q=80',
             bgColor: '#F8FAFC', // slate-50
@@ -122,16 +122,16 @@ export default function PricingScrollShowcase() {
         },
         {
             id: 'tier-2',
-            name: 'Advanced Protection',
+            name: 'Plan Two',
             price: 'Custom Quote',
-            description: 'Enhanced security for corporate campuses, industrial sites, and high-traffic venues.',
+            description: 'Description of the second plan tier. Suitable for advanced requirements.',
             features: [
-                'Mobile Patrol Units',
-                'Technologically Integrated Reporting',
-                'Rapid Response Teams',
-                'CCTV Monitoring Integration',
-                'Advanced Threat Assessment',
-                'Detailed Analytics & Insights'
+                'Feature One',
+                'Feature Two',
+                'Feature Three',
+                'Feature Four',
+                'Feature Five',
+                'Feature Six'
             ],
             image: 'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80',
             bgColor: '#F1F5F9', // slate-100
@@ -139,16 +139,16 @@ export default function PricingScrollShowcase() {
         },
         {
             id: 'tier-3',
-            name: 'Elite Command',
+            name: 'Plan Three',
             price: 'Custom Quote',
-            description: 'Top-tier security for executives, high-risk assets, and sensitive government operations.',
+            description: 'Description of the third plan tier. Suitable for premium requirements.',
             features: [
-                'Executive Protection Agents (Bodyguards)',
-                '24/7 Command Center Monitoring',
-                'Cyber-Physical Threat Intelligence',
-                'Counter-Surveillance Measures',
-                'Crisis Management Planning',
-                'Dedicated Account Manager'
+                'Feature One',
+                'Feature Two',
+                'Feature Three',
+                'Feature Four',
+                'Feature Five',
+                'Feature Six'
             ],
             image: 'https://images.unsplash.com/photo-1626084798132-72019c4b7b25?w=800&q=80', // Tech/Command center vib
             bgColor: '#E2E8F0', // slate-200

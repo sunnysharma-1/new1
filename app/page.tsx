@@ -4,11 +4,11 @@ import Footer from '@/components/footer'
 import HeroSection from '@/components/hero-section'
 import AboutSection from '@/components/about-section'
 import ServicesSection from '@/components/services-section'
-import FeaturesSection from '@/components/features-section'
-import TestimonialsSection from '@/components/testimonials-section'
-import ContactSection from '@/components/contact-section'
 import ClientsSection from '@/components/clients-section'
-import ComplianceSection from '@/components/compliance-section'
+import WhyChooseUs from '@/components/why-choose-us'
+import FAQSection from '@/components/faq-section'
+import ContactSection from '@/components/contact-section'
+import AgencyDifferentiators from '@/components/agency-differentiators'
 import ProcessTimeline from '@/components/process-timeline'
 
 export default function Home() {
@@ -17,12 +17,12 @@ export default function Home() {
       <Header />
       <HeroSection />
       <AboutSection />
-      <FeaturesSection />
+      <WhyChooseUs />
       <ServicesSection />
       <ClientsSection />
+      <AgencyDifferentiators />
       <ProcessTimeline />
-      <TestimonialsSection />
-      <ComplianceSection />
+      <FAQSection />
       <ContactSection />
       <Footer />
     </main>

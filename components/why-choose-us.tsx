@@ -1,296 +1,101 @@
 'use client'
 
-import { useEffect, useRef } from 'react'
-import gsap from 'gsap'
-import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import {
-  Award,
-  Briefcase,
-  Clock,
-  Users,
-  TrendingUp,
-  Zap,
-  CheckCircle2,
-  ArrowRight,
-} from 'lucide-react'
-import { Card } from '@/components/ui/card'
+import { ShieldCheck, Zap, Users, ArrowRight } from 'lucide-react'
 
-gsap.registerPlugin(ScrollTrigger)
+const advantages = [
+  {
+    icon: Users,
+    title: "Unmatched Discipline & Training",
+    content: "At Axis Security, we believe that a uniform represents authority, and that authority is earned through discipline. Unlike standard agencies that deploy untrained personnel, every Axis guard undergoes a rigorous verification and training curriculum. From physical fitness drills to soft-skills workshops on conflict de-escalation, our team is prepared to handle any situation with professionalism and composure. We don't just fill a spot; we provide a presence that commands respect.",
+    image: "/images/apex-team-1.jpg",
+    stats: "100%",
+    statsDesc: "Verified Staff"
+  },
+  {
+    icon: Zap,
+    title: "Operational Excellence & Technology",
+    content: "Security is not a static service; it's a dynamic operation appearing 24/7. We integrate smart technology into our daily workflow to ensure accountability. Our digital attendance systems, patrol tracking apps, and real-time incident reporting tools mean that you aren't just paying for hours—you're paying for verified performance. Our leadership team conducts surprise night checks and regular audits to ensure that the standards we promise are the standards we deliver, every single day.",
+    image: "/images/apex-team-3.jpg",
+    stats: "24/7",
+    statsDesc: "Monitoring"
+  },
+  {
+    icon: ShieldCheck,
+    title: "Customized Protection Strategies",
+    content: "We understand that an industrial warehouse has different needs than a corporate lobby. That's why we don't offer cookie-cutter solutions. Our experts analyze your specific site risks—be it material theft, unauthorized access, or emergency evacuation planning—and tailor our Standard Operating Procedures (SOPs) to match. When you choose Axis, you get a security partner that adapts to your business, minimizes your liabilities, and lets you focus on your core operations without worry.",
+    image: "/images/apex-team-2.jpg",
+    stats: "Tailored",
+    statsDesc: "Solutions"
+  }
+]
 
 export default function WhyChooseUs() {
-  const sectionRef = useRef(null)
-  const containerRef = useRef(null)
-
-  useEffect(() => {
-    const ctx = gsap.context(() => {
-      // Animated stat counters
-      const statNumbers = document.querySelectorAll('.stat-number')
-      statNumbers.forEach((stat) => {
-        const target = parseInt(stat.getAttribute('data-target') || '0')
-        const isPercentage = stat.getAttribute('data-type') === 'percentage'
-        
-        gsap.to(stat, {
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 70%',
-            once: true,
-          },
-          textContent: target,
-          duration: 2.5,
-          ease: 'power2.out',
-          snap: { textContent: 1 },
-          onUpdate: function() {
-            const current = Math.floor(this.targets()[0].textContent)
-            stat.textContent = isPercentage ? current + '%' : current + '+'
-          },
-        })
-      })
-
-      // Staggered cards entrance
-      const reasons = document.querySelectorAll('.reason-item')
-      gsap.fromTo(
-        reasons,
-        {
-          opacity: 0,
-          y: 40,
-          scale: 0.9,
-        },
-        {
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 75%',
-            once: false,
-          },
-          opacity: 1,
-          y: 0,
-          scale: 1,
-          stagger: 0.1,
-          duration: 0.7,
-          ease: 'power3.out',
-        }
-      )
-
-      // Hover effects with advanced animations
-      reasons.forEach((card) => {
-        const icon = card.querySelector('.reason-icon')
-        const content = card.querySelector('.reason-content')
-
-        card.addEventListener('mouseenter', () => {
-          gsap.to(icon, {
-            scale: 1.2,
-            y: -8,
-            duration: 0.5,
-            ease: 'back.out(1.5)',
-          })
-          gsap.to(content, {
-            y: -6,
-            duration: 0.4,
-            ease: 'power2.out',
-          })
-          gsap.to(card, {
-            boxShadow: '0 30px 60px rgba(30, 58, 138, 0.15)',
-            duration: 0.4,
-          })
-        })
-
-        card.addEventListener('mouseleave', () => {
-          gsap.to(icon, {
-            scale: 1,
-            y: 0,
-            duration: 0.5,
-            ease: 'power2.out',
-          })
-          gsap.to(content, {
-            y: 0,
-            duration: 0.4,
-            ease: 'power2.out',
-          })
-          gsap.to(card, {
-            boxShadow: '0 10px 25px rgba(30, 58, 138, 0.06)',
-            duration: 0.4,
-          })
-        })
-      })
-
-      // Stat cards entrance
-      const statCards = document.querySelectorAll('.stat-card')
-      gsap.fromTo(
-        statCards,
-        {
-          opacity: 0,
-          x: -50,
-        },
-        {
-          scrollTrigger: {
-            trigger: containerRef.current,
-            start: 'top 60%',
-            once: false,
-          },
-          opacity: 1,
-          x: 0,
-          stagger: 0.15,
-          duration: 0.8,
-          ease: 'power3.out',
-        }
-      )
-    }, sectionRef)
-
-    return () => ctx.revert()
-  }, [])
-
-  const reasons = [
-    {
-      icon: Award,
-      title: '15+ Years Experience',
-      description:
-        'Over a decade and a half of proven expertise in delivering security solutions',
-      color: 'from-primary to-blue-600',
-    },
-    {
-      icon: Users,
-      title: '1000+ Trained Officers',
-      description:
-        'Comprehensive training ensures our personnel meet the highest industry standards',
-      color: 'from-secondary to-cyan-600',
-    },
-    {
-      icon: Clock,
-      title: '24/7 Availability',
-      description:
-        'Round-the-clock monitoring and support for your continuous peace of mind',
-      color: 'from-orange-400 to-orange-600',
-    },
-    {
-      icon: Briefcase,
-      title: 'Professional Team',
-      description:
-        'Area managers and supervisors ensuring consistent quality and performance',
-      color: 'from-green-500 to-emerald-600',
-    },
-    {
-      icon: TrendingUp,
-      title: 'Cost-Effective Solutions',
-      description:
-        'Transparent pricing with no hidden charges. Maximum value for your investment',
-      color: 'from-purple-500 to-pink-600',
-    },
-    {
-      icon: Zap,
-      title: 'Advanced Technology',
-      description:
-        'State-of-the-art surveillance and monitoring systems for enhanced security',
-      color: 'from-indigo-500 to-blue-600',
-    },
-  ]
-
   return (
-    <section
-      id="why-us"
-      ref={sectionRef}
-      className="relative py-32 px-4 overflow-hidden"
-    >
-      {/* Premium background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-white via-slate-50 to-blue-50/30" />
-      
-      {/* Decorative elements */}
-      <div className="absolute top-20 right-0 w-80 h-80 bg-gradient-to-bl from-primary/8 to-transparent rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 w-96 h-96 bg-gradient-to-tr from-primary/5 to-transparent rounded-full blur-3xl" />
+    <section className="bg-white py-24 overflow-hidden">
+      <div className="container mx-auto px-4 md:px-6 max-w-7xl">
 
-      <div className="relative container mx-auto max-w-7xl">
-        {/* Hero Stats Section */}
-        <div ref={containerRef} className="mb-20">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-20">
-            <div className="stat-card group p-8 bg-white rounded-2xl border border-slate-200/50 text-center hover:border-primary/30 transition-all duration-300" style={{ boxShadow: '0 10px 25px rgba(30, 58, 138, 0.06)' }}>
-              <div className="mb-4">
-                <CheckCircle2 className="w-10 h-10 text-primary mx-auto mb-4 opacity-70 group-hover:opacity-100 transition-opacity" />
-              </div>
-              <div className="stat-number text-5xl md:text-6xl font-bold text-primary mb-2" data-target="500">
-                0+
-              </div>
-              <p className="text-slate-600 font-medium">Trusted Clients Worldwide</p>
-              <p className="text-sm text-slate-500 mt-2">Industry-leading partnerships</p>
-            </div>
-
-            <div className="stat-card group p-8 bg-white rounded-2xl border border-slate-200/50 text-center hover:border-primary/30 transition-all duration-300" style={{ boxShadow: '0 10px 25px rgba(30, 58, 138, 0.06)' }}>
-              <div className="mb-4">
-                <TrendingUp className="w-10 h-10 text-accent mx-auto mb-4 opacity-70 group-hover:opacity-100 transition-opacity" />
-              </div>
-              <div className="stat-number text-5xl md:text-6xl font-bold text-accent mb-2" data-target="100" data-type="percentage">
-                0%
-              </div>
-              <p className="text-slate-600 font-medium">Client Satisfaction Rate</p>
-              <p className="text-sm text-slate-500 mt-2">Exceeds expectations consistently</p>
-            </div>
-
-            <div className="stat-card group p-8 bg-white rounded-2xl border border-slate-200/50 text-center hover:border-primary/30 transition-all duration-300" style={{ boxShadow: '0 10px 25px rgba(30, 58, 138, 0.06)' }}>
-              <div className="mb-4">
-                <Users className="w-10 h-10 text-secondary mx-auto mb-4 opacity-70 group-hover:opacity-100 transition-opacity" />
-              </div>
-              <div className="stat-number text-5xl md:text-6xl font-bold text-secondary mb-2" data-target="1000">
-                0+
-              </div>
-              <p className="text-slate-600 font-medium">Trained Security Personnel</p>
-              <p className="text-sm text-slate-500 mt-2">Certified and continuously upskilled</p>
-            </div>
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-20 animate-fade-in-up">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-100 text-blue-600 text-sm font-bold tracking-wide uppercase mb-6 w-fit">
+            <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
+            The Axis Advantage
           </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
+            Security with <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+              Uncompromised Standards.
+            </span>
+          </h2>
+          <p className="text-slate-500 text-lg leading-relaxed">
+            We don't just supply manpower. We supply a comprehensive security ecosystem managed by experts to give you complete peace of mind.
+          </p>
+        </div>
 
-          {/* Why Choose Us - Core Reasons */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6 leading-tight">
-              Why Enterprise Leaders Choose Us
-            </h2>
-            <p className="text-lg text-slate-600 max-w-3xl mx-auto leading-relaxed">
-              We deliver comprehensive security solutions backed by proven expertise, advanced technology, and an unwavering commitment to excellence
-            </p>
-          </div>
+        {/* Content Rows */}
+        <div className="flex flex-col gap-24">
+          {advantages.map((item, index) => {
+            const Icon = item.icon
+            const isEven = index % 2 === 0
+            return (
+              <div key={index} className={`flex flex-col lg:flex-row items-center gap-12 lg:gap-20 ${isEven ? '' : 'lg:flex-row-reverse'}`}>
 
-          {/* Reasons Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {reasons.map((reason, index) => {
-              const Icon = reason.icon
-              return (
-                <div
-                  key={index}
-                  className="reason-item group relative overflow-hidden rounded-2xl bg-white border border-slate-200/50 p-6 transition-all duration-300 hover:border-primary/20 cursor-pointer"
-                  style={{
-                    boxShadow: '0 10px 25px rgba(30, 58, 138, 0.06)',
-                  }}
-                >
-                  {/* Gradient overlay on hover */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-primary/2 via-transparent to-primary/0 group-hover:from-primary/4 group-hover:via-primary/2 group-hover:to-primary/0 transition-all duration-500 pointer-events-none" />
+                {/* Text Side */}
+                <div className="lg:w-1/2">
+                  <div className={`w-14 h-14 rounded-2xl flex items-center justify-center text-white mb-6 shadow-lg bg-slate-900`}>
+                    <Icon className="w-7 h-7" />
+                  </div>
+                  <h3 className="text-3xl font-bold text-slate-900 mb-6">{item.title}</h3>
+                  <p className="text-slate-600 leading-relaxed text-lg mb-8 border-l-4 border-blue-100 pl-6">
+                    {item.content}
+                  </p>
+                  <div className="flex items-center gap-2 text-blue-600 font-bold uppercase text-sm tracking-wide cursor-pointer group">
+                    Learn More <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </div>
 
-                  <div className="relative">
-                    {/* Icon */}
-                    <div className="reason-icon mb-5 inline-flex">
-                      <div
-                        className={`w-14 h-14 rounded-xl bg-gradient-to-br ${reason.color} flex items-center justify-center shadow-lg group-hover:shadow-xl transition-all duration-300`}
-                      >
-                        <Icon className="w-7 h-7 text-white" />
-                      </div>
-                    </div>
+                {/* Image Side */}
+                <div className="lg:w-1/2 w-full">
+                  <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl aspect-[4/3] group cursor-pointer">
+                    <div className="absolute inset-0 bg-blue-600/10 mix-blend-overlay z-10 group-hover:bg-transparent transition-colors duration-500" />
+                    <img
+                      src={item.image}
+                      alt={item.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
 
-                    {/* Content */}
-                    <div className="reason-content">
-                      <h3 className="text-lg font-bold text-slate-900 mb-3 leading-tight">
-                        {reason.title}
-                      </h3>
-
-                      <p className="text-slate-600 text-sm leading-relaxed mb-4">
-                        {reason.description}
-                      </p>
-
-                      {/* CTA Link */}
-                      <div className="flex items-center gap-2 text-primary font-semibold text-sm opacity-70 group-hover:opacity-100 transition-all duration-300">
-                        <span>Learn more</span>
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
-                      </div>
+                    {/* Floating Badge */}
+                    <div className={`absolute bottom-8 ${isEven ? 'right-8' : 'left-8'} z-20 bg-white/95 backdrop-blur-sm p-6 rounded-2xl shadow-xl border border-white/50 max-w-[200px]`}>
+                      <div className="text-4xl font-bold text-slate-900 mb-1">{item.stats}</div>
+                      <div className="text-xs text-slate-500 uppercase tracking-wider font-bold">{item.statsDesc}</div>
                     </div>
                   </div>
                 </div>
-              )
-            })}
-          </div>
+
+              </div>
+            )
+          })}
         </div>
+
       </div>
     </section>
   )

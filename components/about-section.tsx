@@ -9,9 +9,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 export default function AboutSection() {
     const sectionRef = useRef(null)
-    const counterRef1 = useRef<HTMLParagraphElement>(null)
-    const counterRef2 = useRef<HTMLParagraphElement>(null)
-    const counterRef3 = useRef<HTMLParagraphElement>(null)
+
 
     useEffect(() => {
         const ctx = gsap.context(() => {
@@ -28,31 +26,7 @@ export default function AboutSection() {
                 }
             })
 
-            // Metric Counters
-            const metrics = [
-                { ref: counterRef1, val: 14, suffix: '+' },
-                { ref: counterRef2, val: 50, suffix: '+' },
-                { ref: counterRef3, val: 100, suffix: '%' }
-            ]
 
-            metrics.forEach((metric) => {
-                gsap.from(metric.ref.current, {
-                    textContent: 0,
-                    duration: 2.5,
-                    ease: 'power1.out',
-                    snap: { textContent: 1 },
-                    stagger: 1,
-                    scrollTrigger: {
-                        trigger: sectionRef.current,
-                        start: 'top 80%',
-                    },
-                    onUpdate: function () {
-                        if (metric.ref.current) {
-                            metric.ref.current.textContent = Math.ceil(Number(this.targets()[0].textContent)) + metric.suffix
-                        }
-                    }
-                })
-            })
 
             // Image Parallax
             gsap.to('.about-image-front', {
@@ -95,34 +69,20 @@ export default function AboutSection() {
                             </div>
 
                             <h2 className="reveal-text text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
-                                About Rangerss. <br />
-                                <span className="text-blue-600">Established Excellence since 2012.</span>
+                                Who We Are. <br />
+                                <span className="text-blue-600">Axis Security & Surveillance</span>
                             </h2>
 
                             <p className="reveal-text text-slate-600 text-lg leading-relaxed border-l-4 border-blue-100 pl-6">
-                                Rangerss Security & Surveillance provides cost-effective and comprehensive security solutions for complex environments across India. Under the leadership of Chairman <span className="font-semibold text-slate-900">Smt. Muskan Khutliwala</span> and MD & CEO <span className="font-semibold text-slate-900">Mr. Aslam Khutliwala</span>, we focus on military-grade performance and customer satisfaction.
+                                Axis Security & Surveillance, based in Dadra & Nagar Haveli, is a security firm built on discipline and practical experience. We focus on protecting people, property, and daily operations through planned security with clear routines, active supervision, and leadership-managed sites.
                             </p>
 
                             <p className="reveal-text text-slate-600 leading-relaxed">
-                                Headquartered in Silvassa, we use up-to-the-minute technology and an <strong>"eagle-eye approach"</strong> to manage squads. Our area managers conduct thrice-daily checks and twice-weekly night visits to ensure uncompromised safety.
+                                Our operational excellence ensures consistency through defined procedures, smart monitoring, and surprise inspections. All guards are rigorously trained in safety drills, fire response, first aid, and professional conduct, ensuring a safer, trustworthy environment.
                             </p>
                         </div>
 
-                        {/* Metrics Grid */}
-                        <div className="reveal-text grid grid-cols-3 gap-6 pt-4 border-t border-slate-100">
-                            <div>
-                                <p className="text-3xl font-bold text-slate-900 mb-1" ref={counterRef1}>0+</p>
-                                <p className="text-sm font-semibold text-slate-500 uppercase tracking-wide">Years Exp.</p>
-                            </div>
-                            <div>
-                                <p className="text-3xl font-bold text-slate-900 mb-1" ref={counterRef2}>0+</p>
-                                <p className="text-sm font-semibold text-slate-500 uppercase tracking-wide">Clients</p>
-                            </div>
-                            <div>
-                                <p className="text-3xl font-bold text-slate-900 mb-1" ref={counterRef3}>0%</p>
-                                <p className="text-sm font-semibold text-slate-500 uppercase tracking-wide">Satisfaction</p>
-                            </div>
-                        </div>
+
                     </div>
 
                     {/* Image / Visual Side */}
@@ -133,7 +93,7 @@ export default function AboutSection() {
                         {/* Back Image (Offset) */}
                         <div className="about-image-back absolute top-0 right-10 w-3/5 h-[350px] shadow-2xl rounded-2xl overflow-hidden z-10 border-4 border-white">
                             <img
-                                src="https://images.unsplash.com/photo-1577962917302-cd874c4e31d2?w=800&h=1000&fit=crop&q=80"
+                                src="/images/apex-building-lineup.jpg"
                                 alt="Command Center"
                                 className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
                             />
@@ -142,7 +102,7 @@ export default function AboutSection() {
                         {/* Front Image (Main) */}
                         <div className="about-image-front absolute bottom-0 left-0 w-4/5 h-[400px] shadow-2xl rounded-2xl overflow-hidden z-20 border-4 border-white">
                             <img
-                                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=1000&fit=crop&q=80"
+                                src="/images/apex-hero-group.jpg"
                                 alt="Security Team"
                                 className="w-full h-full object-cover"
                             />
@@ -153,7 +113,7 @@ export default function AboutSection() {
                                 <Shield className="w-8 h-8" />
                                 <div>
                                     <p className="text-xs font-medium opacity-80 uppercase">Verified</p>
-                                    <p className="font-bold">Rangerss Standard</p>
+                                    <p className="font-bold">Gold Standard</p>
                                 </div>
                             </div>
                         </div>

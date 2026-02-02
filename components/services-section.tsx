@@ -3,14 +3,14 @@
 import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import { Shield, Users, Eye, Lock, User, Monitor, ChevronRight, Car, Calendar, ArrowRight } from 'lucide-react'
+import { Shield, Users, Eye, Lock, User, Monitor, ChevronRight, Car, Calendar, ArrowRight, Radio } from 'lucide-react'
 
 gsap.registerPlugin(ScrollTrigger)
 
 export default function ServicesSection() {
-  const sectionRef = useRef(null)
-  const wrapperRef = useRef(null)
-  const containerRef = useRef(null)
+  const sectionRef = useRef<HTMLDivElement>(null)
+  const wrapperRef = useRef<HTMLDivElement>(null)
+  const containerRef = useRef<HTMLDivElement>(null)
   const [activeCard, setActiveCard] = useState(0)
 
   // 3D Tilt Effect Hook-like logic
@@ -60,6 +60,8 @@ export default function ServicesSection() {
     const ctx = gsap.context(() => {
       const scrollContainer = containerRef.current
       const wrapper = wrapperRef.current
+
+      if (!scrollContainer || !wrapper) return
 
       // Calculate total width to scroll
       const getScrollAmount = () => {
@@ -116,68 +118,60 @@ export default function ServicesSection() {
   const services = [
     {
       number: '01',
-      title: 'Security Officer',
-      description: 'Elite security personnel delivering executive protection and corporate security with advanced threat assessment capabilities.',
+      title: 'Manned Guarding',
+      description: 'Our manned guarding service is built on a foundation of discipline and practical experience. All guards are rigorously trained in safety drills, fire response, first aid, and professional conduct. Guided by confidentiality and sound judgment, they provide a trustworthy presence that reduces risk and creates a safer environment for your people and property. We ensure active supervision and leadership-managed sites for consistent performance.',
       icon: Shield,
-      features: ['Executive Protection', 'Threat Assessment'],
-      image: 'https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600&fit=crop&q=80'
+      features: ['Safety Drills', 'Fire Response', 'First Aid', 'Professional Conduct'],
+      image: '/images/apex-march-side-2.jpg'
     },
     {
       number: '02',
-      title: 'Security Supervisor',
-      description: 'Senior operational leaders ensuring strict compliance, quality control, and rapid incident response across all sites.',
+      title: 'Industrial Security',
+      description: 'We provide robust protection for industrial facilities, manufacturing plants, and warehousing centers. Our teams are trained to handle the specific challenges of these environments, including material transit monitoring, perimeter safety, and strict access control procedures. Our operational excellence ensures clear routines and smart monitoring to protect your assets and daily operations from disruption or theft.',
       icon: Eye,
-      features: ['Operational Leadership', 'Compliance Audits'],
-      image: 'https://images.unsplash.com/photo-1557804506-669714d2e9d8?w=800&h=600&fit=crop&q=80'
+      features: ['Material Transit', 'Perimeter Safety', 'Access Control', 'Asset Protection'],
+      image: '/images/apex-warehouse-patrol.jpg'
     },
     {
       number: '03',
-      title: 'Security Guard',
-      description: 'Vigilant 24/7 premises protection with strict access control protocols for residential and commercial assets.',
+      title: 'Corporate Security',
+      description: 'For corporate offices and commercial premises, Axis delivers a professional security solution that balances safety with courtesy. Our personnel manage visitor access, maintain audit logs, and conduct regular patrols to ensure a secure working environment. With a focus on professional communication and appearance, our team integrates seamlessly into your business operations while maintaining high vigilance.',
       icon: Users,
-      features: ['Access Control', '24/7 Vigilance'],
-      image: 'https://images.unsplash.com/photo-1552058544-f6b08422138a?w=800&h=600&fit=crop&q=80'
+      features: ['Visitor Management', 'Audit Logs', 'Professionalism', 'Secure Environment'],
+      image: '/images/apex-office-desk.jpg'
     },
     {
       number: '04',
-      title: 'Gun Man / Armed',
-      description: 'Licensed specialists for high-risk environments, offering maximum deterrence and immediate tactical response.',
+      title: 'Event Security',
+      description: 'For high-density or time-critical scenarios, we deploy specialized teams for large-scale events, exhibitions, and unique functions. Our comprehensive operational security covers crowd management, VIP safety, and rapid response coordination. We ensure efficient handling of large gatherings, maintaining order and safety throughout the duration of your event with a proactive and professional approach.',
       icon: Lock,
-      features: ['High-Risk Security', 'Tactical Response'],
-      image: 'https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&h=600&fit=crop&q=80'
+      features: ['Crowd Management', 'Large-Scale Events', 'VIP Safety', 'Rapid Response'],
+      image: '/images/apex-flag-ceremony-large.jpg'
     },
     {
       number: '05',
-      title: 'Lady Guard',
-      description: 'Specialized personnel for sensitive environments, combining rigorous security training with exceptional public relations skills.',
-      icon: User,
-      features: ['Sensitive Areas', 'Public Relations'],
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=800&h=600&fit=crop&q=80'
+      title: 'Tech Surveillance',
+      description: 'Axis integrates smart, easy-to-use technology to keep security operations consistent and responsive. We use digital attendance, shift tracking, and patrol validation systems to boost discipline and cut down on gaps. By linking up with existing CCTV infrastructure, we strengthen our oversight and provide clear accountability through structured incident reports and regular performance summaries.',
+      icon: Monitor,
+      features: ['Digital Attendance', 'CCTV Integration', 'Patrol Validation', 'Incident Reports'],
+      image: '/images/apex-building-lineup.jpg'
     },
     {
       number: '06',
-      title: '24/7 Monitoring',
-      description: 'Advanced command center integration for real-time surveillance, alarm verification, and emergency dispatch.',
-      icon: Monitor,
-      features: ['Remote Surveillance', 'Emergency Dispatch'],
-      image: 'https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=800&h=600&fit=crop&q=80'
+      title: 'Residential Security',
+      description: 'We offer dedicated security for residential complexes and gated communities, prioritizing the safety of families and residents. Our 24/7 patrol validation and check-in systems ensure that only authorized individuals enter the premises. With training in emergency response and first aid, our guards provide peace of mind and a quick reaction to any situation, creating a secure living environment.',
+      icon: Radio,
+      features: ['24/7 Patrols', 'Gated Community', 'Emergency Response', 'Resident Safety'],
+      image: '/images/apex-salute-group-2.jpg'
     },
     {
       number: '07',
-      title: 'Mobile Patrol',
-      description: 'Dynamic roving security units providing random inspections and rapid alarm response for large properties.',
+      title: 'Crisis Management',
+      description: 'Our team is prepared for critical situations through specialized modules on fire safety, emergency response, and basic risk assessment. We conduct mock drills and real-life scenarios to ensure our personnel are ready for anything. This proactive approach allows us to reduce risk, handle emergencies with confidence, and continuously improve our service quality for your safety.',
       icon: Car,
-      features: ['Random Patrols', 'Rapid Response'],
-      image: 'https://images.unsplash.com/photo-1626081395982-1e96a461c28c?w=800&h=600&fit=crop&q=80'
-    },
-    {
-      number: '08',
-      title: 'Event Security',
-      description: 'Comprehensive crowd management and VIP safety for corporate events, concerts, and private gatherings.',
-      icon: Calendar,
-      features: ['Crowd Control', 'VIP Safety'],
-      image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?w=800&h=600&fit=crop&q=80'
-    },
+      features: ['Fire Safety', 'Risk Assessment', 'Mock Drills', 'Emergency Readiness'],
+      image: '/images/apex-parade-fog.jpg'
+    }
   ]
 
   return (
