@@ -9,7 +9,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 gsap.registerPlugin(ScrollTrigger)
 
 // Floating Label Input Component
-const FloatingInput = ({ label, type = 'text', placeholder = '' }: { label: string, type?: string, placeholder?: string }) => {
+const FloatingInput = ({ label, type = 'text', name, required = false }: { label: string, type?: string, name: string, required?: boolean }) => {
   const [focused, setFocused] = useState(false)
   const [value, setValue] = useState('')
 
@@ -17,6 +17,8 @@ const FloatingInput = ({ label, type = 'text', placeholder = '' }: { label: stri
     <div className="relative group">
       <input
         type={type}
+        name={name}
+        required={required}
         className={`w-full bg-white/5 border border-white/10 rounded-xl px-4 pt-6 pb-2 text-white outline-none transition-all duration-300 focus:bg-white/10 focus:border-blue-500/50 ${value ? 'filled' : ''}`}
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
@@ -38,6 +40,42 @@ const FloatingInput = ({ label, type = 'text', placeholder = '' }: { label: stri
 export default function ContactSection() {
   const sectionRef = useRef(null)
   const formRef = useRef<HTMLDivElement>(null)
+  const [result, setResult] = useState<string>("")
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle")
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setStatus("loading");
+    setResult("Sending...");
+
+    const formData = new FormData(e.currentTarget);
+    formData.append("access_key", "28b72c3a-2b3d-4deb-8967-b9e4b7fa7211");
+    formData.append("subject", "New Contact Inquiry from Axis Security Website");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setResult("Form Submitted Successfully");
+        setStatus("success");
+        (e.target as HTMLFormElement).reset();
+        // Ideally reset internal state of FloatingInputs too, but simplistic reset works for native inputs
+      } else {
+        console.log("Error", data);
+        setResult(data.message);
+        setStatus("error");
+      }
+    } catch (error) {
+      console.log("Error", error);
+      setResult("Something went wrong. Please try again later.");
+      setStatus("error");
+    }
+  };
 
   // 3D Tilt Logic
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -182,16 +220,18 @@ export default function ContactSection() {
 
               <h3 className="text-3xl font-bold text-white mb-8 relative z-10">Get Your Free Quote</h3>
 
-              <form className="space-y-6 relative z-10">
+              <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
                 <div className="grid grid-cols-2 gap-6">
-                  <FloatingInput label="First Name" />
-                  <FloatingInput label="Last Name" />
+                  <FloatingInput label="First Name" name="first_name" required />
+                  <FloatingInput label="Last Name" name="last_name" required />
                 </div>
 
-                <FloatingInput label="Email Address" type="email" />
+                <FloatingInput label="Email Address" type="email" name="email" required />
 
                 <div className="relative group">
                   <textarea
+                    name="message"
+                    required
                     className="w-full bg-white/5 border border-white/10 rounded-xl px-4 pt-6 pb-2 text-white outline-none transition-all duration-300 focus:bg-white/10 focus:border-blue-500/50 min-h-[120px] resize-none"
                   ></textarea>
                   <label className="absolute left-4 top-4 text-slate-400 pointer-events-none transition-all group-focus-within:-translate-y-2 group-focus-within:text-xs group-focus-within:text-blue-400">
@@ -199,11 +239,21 @@ export default function ContactSection() {
                   </label>
                 </div>
 
-                <Button className="w-full h-14 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold rounded-xl text-lg flex items-center justify-center gap-3 group relative overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,99,235,0.5)]">
-                  <span className="relative z-10">Send Request</span>
-                  <Send className="w-5 h-5 relative z-10 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                <Button
+                  type="submit"
+                  disabled={status === "loading"}
+                  className="w-full h-14 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-bold rounded-xl text-lg flex items-center justify-center gap-3 group relative overflow-hidden transition-all duration-300 hover:shadow-[0_0_20px_rgba(37,99,235,0.5)] disabled:opacity-70 disabled:cursor-not-allowed"
+                >
+                  <span className="relative z-10">{status === "loading" ? "Sending..." : "Send Request"}</span>
+                  <Send className={`w-5 h-5 relative z-10 transition-transform ${status === "loading" ? "translate-x-10 opacity-0" : "group-hover:translate-x-1 group-hover:-translate-y-1"}`} />
                   <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 skew-y-12" />
                 </Button>
+
+                {result && (
+                  <p className={`text-center mt-4 text-sm font-semibold ${status === 'success' ? 'text-green-400' : 'text-red-400'}`}>
+                    {result}
+                  </p>
+                )}
               </form>
             </div>
           </div>

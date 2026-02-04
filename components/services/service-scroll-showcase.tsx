@@ -79,9 +79,9 @@ export default function ServiceScrollShowcase() {
                 const imgWrap = slide.querySelector('.slide-img-wrap')
                 if (imgWrap) {
                     gsap.fromTo(imgWrap,
-                        { y: '-20%' },
+                        { y: '-2.5%' },
                         {
-                            y: '20%',
+                            y: '2.5%',
                             ease: 'none',
                             scrollTrigger: {
                                 trigger: slide,
@@ -145,7 +145,7 @@ export default function ServiceScrollShowcase() {
             title: 'Event Security',
             description: 'For high-density scenarios, we rely on "Pre-Event Reconnaissance." Our teams survey your venue days in advance to identify choke points, emergency exits, and VIP routes. We coordinate closely with local law enforcement and manage everything from rigorous bag checks to rapid response coordination. Whether it is a corporate gala or a large exhibition, we ensure the safety of large gatherings with a proactive, organized presence.',
             features: ['Crowd Management Strategies', 'VIP & Executive Protection', 'Rapid Response Coordination', 'Large-Scale Event Logistics'],
-            image: '/images/apex-flag-ceremony-large.jpg',
+            image: '/images/IMG_7199.jpg',
             bgColor: '#F1F5F9',
             accentColor: 'bg-slate-800'
         },
@@ -155,7 +155,7 @@ export default function ServiceScrollShowcase() {
             title: 'Tech Surveillance',
             description: 'Axis integrates smart, easy-to-use technology to create accountability. We implement a QR-code based "Guard Tour System" that validates patrols in real-time, eliminating blind spots. Our teams use app-based reporting for immediate incident logging, replacing slow paper trails with instant data. By linking with your existing CCTV infrastructure, we provide a transparent, data-driven security layer that keeps you informed 24/7.',
             features: ['Digital Attendance Tracking', 'CCTV Integration & Monitoring', 'Patrol Validation Systems', 'Structured Incident Reporting'],
-            image: '/images/apex-building-lineup.jpg',
+            image: '/images/apex-tech-surveillance.jpeg',
             bgColor: '#E2E8F0',
             accentColor: 'bg-emerald-600'
         }
@@ -211,7 +211,7 @@ export default function ServiceScrollShowcase() {
                         style={{ backgroundColor: service.bgColor }}
                     >
                         {/* Column 1: Content */}
-                        <div className="relative z-10 w-full md:w-3/5 flex flex-col justify-end p-6 md:p-20 order-2 md:order-1 pointer-events-none md:pointer-events-auto pb-24 md:pb-20">
+                        <div className="relative z-10 w-full md:w-1/2 lg:w-3/5 flex flex-col justify-end p-6 md:p-20 order-2 md:order-1 pointer-events-none md:pointer-events-auto pb-24 md:pb-20">
                             <div className="max-w-xl mb-4 md:mb-20">
                                 <span className={`slide-content-item block text-5xl md:text-9xl font-bold mb-2 md:mb-4 opacity-20 ${index % 2 === 0 ? 'text-slate-900' : 'text-blue-900'}`}>
                                     {service.number}
@@ -264,8 +264,8 @@ export default function ServiceScrollShowcase() {
                         </div>
 
                         {/* Column 2: Image */}
-                        <div className="relative md:relative w-full md:w-2/5 h-[40vh] md:h-full order-1 md:order-2 overflow-hidden">
-                            <div className="slide-img-wrap w-full h-[140%] relative -top-[20%]">
+                        <div className="relative md:relative w-full md:w-1/2 lg:w-2/5 h-[50vh] md:h-full order-1 md:order-2 overflow-hidden">
+                            <div className="slide-img-wrap w-full h-[105%] relative -top-[2.5%]">
                                 <img
                                     src={service.image}
                                     alt={service.title}

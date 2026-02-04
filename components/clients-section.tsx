@@ -19,7 +19,7 @@ const industries = [
         title: 'Corporate & Offices',
         description: 'Seamless integration of safety and hospitality. Our personnel manage visitor access and maintain a professional front-desk presence.',
         icon: Building2,
-        image: '/images/apex-office-desk.jpg',
+        image: '/images/apex-office-staff.jpg',
         color: 'from-indigo-600 to-indigo-400'
     },
     {
