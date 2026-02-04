@@ -96,9 +96,14 @@ export default function HeroSection() {
           <span className="tracking-wide uppercase">Discipline. Protection. Excellence.</span>
         </div>
 
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold font-serif text-white tracking-tighter leading-none whitespace-nowrap mb-8 mix-blend-overlay">
-          Axis <br /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-500 to-indigo-500">Security & Surveillance</span>
-        </h1>
+        <div className="flex flex-col items-center justify-center mb-10 mix-blend-overlay">
+          <h1 className="text-[12rem] md:text-[16rem] lg:text-[20rem] font-black tracking-tighter leading-[0.8] text-white select-none">
+            AXIS
+          </h1>
+          <span className="text-xl md:text-3xl lg:text-4xl font-bold tracking-[1em] uppercase text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-blue-400 animate-pulse ml-4">
+            Security
+          </span>
+        </div>
 
         <div className="flex justify-center gap-4 mt-8 pointer-events-auto">
           <Link href="/services">

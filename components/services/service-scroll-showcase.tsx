@@ -171,7 +171,7 @@ export default function ServiceScrollShowcase() {
                         Axis <br /> <span className="text-blue-600">Security</span>
                     </h1>
                     <p className="intro-desc text-lg md:text-2xl text-slate-600 max-w-xl md:ml-32 leading-relaxed font-light mb-6">
-                        Axis Security & Surveillance is going from strength to strength. Whether it’s executive protection or large-scale event management, people recognize the Axis standard of excellence.
+                        Axis Security is going from strength to strength. Whether it’s executive protection or large-scale event management, people recognize the Axis standard of excellence.
                     </p>
                     <p className="intro-sub-desc text-base md:text-lg text-slate-500 max-w-lg md:ml-40 leading-relaxed border-l-2 border-blue-200 pl-4">
                         We blend traditional discipline with modern technology. Our officers are not just guards; they are trained professionals equipped to handle complex security challenges with authority and grace.

@@ -118,7 +118,7 @@ export default function Footer() {
         {/* Social Links & Bottom */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="text-sm text-white/70">
-            © {currentYear} Axis Security & Surveillance. All rights reserved.
+            © {currentYear} Axis Security. All rights reserved.
           </p>
           <div className="flex gap-4">
             <a

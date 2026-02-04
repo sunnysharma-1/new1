@@ -17,7 +17,7 @@ export default function ComplianceSection() {
                             </div>
                             <h2 className="text-3xl font-bold text-slate-900 mb-6">Regulatory Compliance & Licensing</h2>
                             <p className="text-slate-600 mb-8 leading-relaxed">
-                                Axis Security & Surveillance operates with absolute adherence to the Private Security Agencies (Regulation) Act (PSARA) and all local governmental regulations. We maintain complete transparency in our legal standing to ensure our clients face zero liability.
+                                Axis Security operates with absolute adherence to the Private Security Agencies (Regulation) Act (PSARA) and all local governmental regulations. We maintain complete transparency in our legal standing to ensure our clients face zero liability.
                             </p>
                         </div>
 

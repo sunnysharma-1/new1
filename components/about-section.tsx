@@ -70,11 +70,11 @@ export default function AboutSection() {
 
                             <h2 className="reveal-text text-4xl md:text-5xl font-bold text-slate-900 leading-tight">
                                 Who We Are. <br />
-                                <span className="text-blue-600">Axis Security & Surveillance</span>
+                                <span className="text-blue-600">Axis Security</span>
                             </h2>
 
                             <p className="reveal-text text-slate-600 text-lg leading-relaxed border-l-4 border-blue-100 pl-6">
-                                Axis Security & Surveillance, based in Dadra & Nagar Haveli, is a security firm built on discipline and practical experience. We focus on protecting people, property, and daily operations through planned security with clear routines, active supervision, and leadership-managed sites.
+                                Axis Security, based in Dadra & Nagar Haveli, is a security firm built on discipline and practical experience. We focus on protecting people, property, and daily operations through planned security with clear routines, active supervision, and leadership-managed sites.
                             </p>
 
                             <p className="reveal-text text-slate-600 leading-relaxed">
@@ -113,7 +113,7 @@ export default function AboutSection() {
                                 <Shield className="w-8 h-8" />
                                 <div>
                                     <p className="text-xs font-medium opacity-80 uppercase">Verified</p>
-                                    <p className="font-bold">Gold Standard</p>
+                                    <p className="font-bold">Excellence</p>
                                 </div>
                             </div>
                         </div>

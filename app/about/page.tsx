@@ -151,7 +151,7 @@ export default function AboutPage() {
                     </div>
                     <p className="text-3xl md:text-5xl font-bold leading-tight">
                         {/* Splitting text for highlight effect */}
-                        {`Axis Security & Surveillance is a firm built on discipline and practical experience. We offer planned security with clear routines, active supervision, and leadership managed sites. Our mission is simple: to reduce risk, create a safer environment, and continuously improve our service.`.split(' ').map((word, i) => (
+                        {`Axis Security is a firm built on discipline and practical experience. We offer planned security with clear routines, active supervision, and leadership managed sites. Our mission is simple: to reduce risk, create a safer environment, and continuously improve our service.`.split(' ').map((word, i) => (
                             <span key={i} className="mission-word inline-block mr-3">{word}</span>
                         ))}
                     </p>
