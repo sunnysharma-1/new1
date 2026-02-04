@@ -89,11 +89,11 @@ export default function ProcessTimeline() {
     }, [])
 
     return (
-        <section ref={containerRef} className="py-24 bg-slate-50 relative overflow-hidden">
+        <section ref={containerRef} className="py-16 bg-slate-50 relative overflow-hidden">
             <div className="container mx-auto px-4 max-w-6xl">
 
                 {/* Header */}
-                <div className="text-center mb-24">
+                <div className="text-center mb-12">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-blue-600 text-sm font-bold uppercase tracking-widest mb-6 shadow-sm">
                         <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
                         Operational Roadmap
@@ -102,7 +102,7 @@ export default function ProcessTimeline() {
                         The Axis <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-600">Workflow</span>
                     </h2>
                     <p className="text-lg text-slate-600 max-w-2xl mx-auto dark:text-gray-400">
-                        A systematic, military-grade approach to securing your premises. Zero guesswork, 100% accountability.
+                        A systematic, rigorous approach to securing your premises. Zero guesswork, 100% accountability.
                     </p>
                 </div>
 
@@ -114,7 +114,7 @@ export default function ProcessTimeline() {
                     </div>
 
                     {/* Steps */}
-                    <div className="space-y-16 md:space-y-32 relative z-10">
+                    <div className="space-y-16 md:space-y-20 relative z-10">
                         {processSteps.map((step, index) => {
                             const Icon = step.icon
                             const isEven = index % 2 === 0
