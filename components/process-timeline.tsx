@@ -89,16 +89,16 @@ export default function ProcessTimeline() {
     }, [])
 
     return (
-        <section ref={containerRef} className="py-16 bg-slate-50 relative overflow-hidden">
-            <div className="container mx-auto px-4 max-w-6xl">
+        <section ref={containerRef} className="py-6 bg-slate-50 relative overflow-hidden">
+            <div className="container mx-auto px-4 max-w-5xl">
 
                 {/* Header */}
-                <div className="text-center mb-12">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-blue-600 text-sm font-bold uppercase tracking-widest mb-6 shadow-sm">
+                <div className="text-center mb-10">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-slate-200 text-blue-600 text-sm font-bold uppercase tracking-widest mb-4 shadow-sm">
                         <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
                         Operational Roadmap
                     </div>
-                    <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-6">
+                    <h2 className="text-4xl md:text-5xl font-bold text-slate-900 mb-4">
                         The Axis <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-600">Workflow</span>
                     </h2>
                     <p className="text-lg text-slate-600 max-w-2xl mx-auto dark:text-gray-400">
@@ -114,24 +114,24 @@ export default function ProcessTimeline() {
                     </div>
 
                     {/* Steps */}
-                    <div className="space-y-16 md:space-y-20 relative z-10">
+                    <div className="space-y-8 md:space-y-8 relative z-10">
                         {processSteps.map((step, index) => {
                             const Icon = step.icon
                             const isEven = index % 2 === 0
                             return (
-                                <div key={index} className={`process-step flex flex-col md:flex-row items-center gap-12 ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
+                                <div key={index} className={`process-step flex flex-col md:flex-row items-center gap-6 ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
 
                                     {/* Content Side */}
                                     <div className={`w-full md:w-1/2 ${isEven ? 'md:text-right' : 'md:text-left'} group`}>
-                                        <div className="relative bg-white p-8 md:p-10 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                                        <div className="relative bg-white p-6 md:p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                                             {/* Watermark Number */}
                                             <div className={`absolute -top-6 ${isEven ? 'right-8 md:right-auto md:left-8' : 'left-8 md:left-auto md:right-8'} text-8xl font-black text-slate-50 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none select-none`}>
                                                 {step.id}
                                             </div>
 
                                             <div className="relative z-10">
-                                                <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-blue-700 transition-colors">{step.title}</h3>
-                                                <p className="text-slate-600 leading-relaxed font-medium">
+                                                <h3 className="text-xl md:text-2xl font-bold text-slate-900 mb-3 group-hover:text-blue-700 transition-colors">{step.title}</h3>
+                                                <p className="text-slate-600 leading-relaxed font-medium text-sm md:text-base">
                                                     {step.description}
                                                 </p>
                                             </div>
@@ -143,19 +143,19 @@ export default function ProcessTimeline() {
 
                                     {/* Central Icon */}
                                     <div className="relative shrink-0 z-20">
-                                        <div className="w-16 h-16 rounded-full bg-white border-4 border-slate-100 flex items-center justify-center text-blue-600 shadow-lg relative group transition-transform duration-300 hover:scale-110 hover:border-blue-100">
-                                            <Icon className="w-7 h-7 relative z-10" />
+                                        <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white border-4 border-slate-100 flex items-center justify-center text-blue-600 shadow-lg relative group transition-transform duration-300 hover:scale-110 hover:border-blue-100">
+                                            <Icon className="w-6 h-6 md:w-7 md:h-7 relative z-10" />
                                             <div className="absolute inset-0 rounded-full bg-blue-50 opacity-0 group-hover:opacity-100 transition-opacity" />
                                         </div>
                                         {/* Mobile Line Connector */}
                                         {index !== processSteps.length - 1 && (
-                                            <div className="absolute top-16 left-1/2 w-px h-16 bg-slate-200 -translate-x-1/2 md:hidden" />
+                                            <div className="absolute top-12 left-1/2 w-px h-12 bg-slate-200 -translate-x-1/2 md:hidden" />
                                         )}
                                     </div>
 
                                     {/* Empty Space for alignment */}
                                     <div className="w-full md:w-1/2 hidden md:block">
-                                        <div className={`text-[10rem] font-black text-slate-100 leading-none opacity-50 ${isEven ? 'text-left pl-12' : 'text-right pr-12'}`}>
+                                        <div className={`text-[8rem] font-black text-slate-100 leading-none opacity-50 ${isEven ? 'text-left pl-12' : 'text-right pr-12'}`}>
                                             {step.id}
                                         </div>
                                     </div>
