@@ -90,6 +90,11 @@ export default function ProcessTimeline() {
 
     return (
         <section ref={containerRef} className="py-6 bg-slate-50 relative overflow-hidden">
+            {/* Background Elements */}
+            <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]" />
+            <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-blue-400 opacity-20 blur-[100px]" />
+            <div className="absolute right-0 bottom-0 -z-10 h-[310px] w-[310px] rounded-full bg-indigo-400 opacity-20 blur-[100px]" />
+
             <div className="container mx-auto px-4 max-w-5xl">
 
                 {/* Header */}
