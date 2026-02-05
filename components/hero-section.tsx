@@ -72,10 +72,10 @@ export default function HeroSection() {
     // Layer 2 (Mid - The focus group)
     { url: '/images/apex-team-2.jpg', layer: 2, classes: 'top-[10%] right-[15%] w-[14vw] opacity-40' },
     { url: '/images/apex-team-3.jpg', layer: 2, classes: 'bottom-[15%] left-[20%] w-[16vw] opacity-40' },
-    { url: '/images/apex-flag-hoist.jpg', layer: 2, classes: 'top-[30%] left-[5%] w-[10vw] opacity-40' },
+    { url: '/images/IMG_7199.jpg', layer: 2, classes: 'top-[30%] left-[5%] w-[10vw] opacity-40' },
 
     // Layer 1 (Background - Deep depth)
-    { url: '/images/apex-flag-ceremony-large.jpg', layer: 1, classes: 'top-[60%] right-[5%] w-[12vw] opacity-20' },
+    { url: '/images/apex-hero-group.jpg', layer: 1, classes: 'top-[60%] right-[5%] w-[12vw] opacity-20' },
     { url: '/images/apex-building-lineup.jpg', layer: 1, classes: 'top-[5%] left-[35%] w-[14vw] opacity-20' },
   ]
 

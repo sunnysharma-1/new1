@@ -57,57 +57,82 @@ export default function ServicesSection() {
   }
 
   useEffect(() => {
+    const mm = gsap.matchMedia()
+
     const ctx = gsap.context(() => {
-      const scrollContainer = containerRef.current
-      const wrapper = wrapperRef.current
+      // Desktop Animation (Horizontal Scroll)
+      mm.add("(min-width: 1024px)", () => {
+        const scrollContainer = containerRef.current
+        const wrapper = wrapperRef.current
 
-      if (!scrollContainer || !wrapper) return
+        if (!scrollContainer || !wrapper) return
 
-      // Calculate total width to scroll
-      const getScrollAmount = () => {
-        let scrollWidth = scrollContainer.scrollWidth
-        return -(scrollWidth - wrapper.offsetWidth)
-      }
+        // Calculate total width to scroll
+        const getScrollAmount = () => {
+          let scrollWidth = scrollContainer.scrollWidth
+          return -(scrollWidth - wrapper.offsetWidth)
+        }
 
-      // Main Horizontal Scroll
-      gsap.to(scrollContainer, {
-        x: getScrollAmount,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: wrapper,
-          start: 'top top',
-          end: () => `+=${getScrollAmount() * -1}`,
-          pin: true,
-          scrub: 1,
-          invalidateOnRefresh: true,
-          onUpdate: (self) => {
-            // Update active card based on scroll progress
-            const totalCards = services.length
-            const index = Math.round(self.progress * (totalCards - 1))
-            setActiveCard(index)
-          }
-        },
+        // Main Horizontal Scroll
+        gsap.to(scrollContainer, {
+          x: getScrollAmount,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: wrapper,
+            start: 'top top',
+            end: () => `+=${getScrollAmount() * -1}`,
+            pin: true,
+            scrub: 1,
+            invalidateOnRefresh: true,
+            onUpdate: (self) => {
+              // Update active card based on scroll progress
+              const totalCards = services.length
+              const index = Math.round(self.progress * (totalCards - 1))
+              setActiveCard(index)
+            }
+          },
+        })
+
+        // Card Animations on entrance
+        const cards = document.querySelectorAll('.service-card')
+        cards.forEach((card, i) => {
+          gsap.fromTo(card,
+            { y: 100, opacity: 0, rotateX: 45 },
+            {
+              y: 0,
+              opacity: 1,
+              rotateX: 0,
+              duration: 1,
+              ease: 'power3.out',
+              scrollTrigger: {
+                trigger: wrapper,
+                start: 'top 70%',
+                toggleActions: 'play none none reverse'
+              },
+              delay: i * 0.1
+            }
+          )
+        })
       })
 
-      // Card Animations on entrance
-      const cards = document.querySelectorAll('.service-card')
-      cards.forEach((card, i) => {
-        gsap.fromTo(card,
-          { y: 100, opacity: 0, rotateX: 45 },
-          {
-            y: 0,
-            opacity: 1,
-            rotateX: 0,
-            duration: 1,
-            ease: 'power3.out',
-            scrollTrigger: {
-              trigger: wrapper,
-              start: 'top 70%',
-              toggleActions: 'play none none reverse'
-            },
-            delay: i * 0.1
-          }
-        )
+      // Mobile/Tablet Animation (Simple Fade In)
+      mm.add("(max-width: 1023px)", () => {
+        const cards = document.querySelectorAll('.service-card')
+        cards.forEach((card) => {
+          gsap.fromTo(card,
+            { y: 50, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.8,
+              scrollTrigger: {
+                trigger: card,
+                start: 'top 85%',
+                toggleActions: 'play none none reverse'
+              }
+            }
+          )
+        })
       })
 
     }, sectionRef)
@@ -146,7 +171,7 @@ export default function ServicesSection() {
       description: 'For high-density or time-critical scenarios, we deploy specialized teams for large-scale events, exhibitions, and unique functions. Our comprehensive operational security covers crowd management, VIP safety, and rapid response coordination. We ensure efficient handling of large gatherings, maintaining order and safety throughout the duration of your event with a proactive and professional approach.',
       icon: Lock,
       features: ['Crowd Management', 'Large-Scale Events', 'VIP Safety', 'Rapid Response'],
-      image: '/images/apex-flag-ceremony-large.jpg'
+      image: '/images/IMG_7199.JPG'
     },
     {
       number: '05',
@@ -175,7 +200,7 @@ export default function ServicesSection() {
   ]
 
   return (
-    <section ref={sectionRef} className="relative bg-slate-950 py-24 overflow-hidden">
+    <section ref={sectionRef} className="relative bg-slate-950 py-16 md:py-24 overflow-hidden">
       {/* Dynamic Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(17,24,39,1),_rgba(0,0,0,1))]" />
       <div className="absolute inset-0 opacity-30 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay" />
@@ -184,7 +209,7 @@ export default function ServicesSection() {
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-[128px] animate-pulse" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-600/20 rounded-full blur-[128px] animate-pulse delay-1000" />
 
-      <div ref={wrapperRef} className="h-screen w-full flex flex-col justify-center overflow-hidden relative z-10">
+      <div ref={wrapperRef} className="lg:h-screen w-full flex flex-col justify-center overflow-hidden relative z-10">
 
         <div className="container mx-auto max-w-7xl px-4 md:px-6 relative z-10 mb-8 md:mb-12">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
@@ -201,8 +226,8 @@ export default function ServicesSection() {
               </h2>
             </div>
 
-            {/* Progress Indicator */}
-            <div className="hidden md:flex flex-col items-end gap-3">
+            {/* Progress Indicator - Desktop Only */}
+            <div className="hidden lg:flex flex-col items-end gap-3">
               <div className="flex items-baseline gap-2">
                 <span className="text-4xl font-bold text-white tabular-nums">
                   {String(activeCard + 1).padStart(2, '0')}
@@ -220,21 +245,22 @@ export default function ServicesSection() {
           </div>
         </div>
 
+        {/* Services List */}
         <div
           ref={containerRef}
-          className="flex gap-8 md:gap-12 px-8 md:px-12 lg:px-24 w-max pb-16 pt-8 perspective-1000"
+          className="flex flex-col lg:flex-row gap-8 lg:gap-12 px-4 md:px-6 lg:px-24 w-full lg:w-max pb-16 pt-8 perspective-1000 items-center lg:items-center"
         >
           {services.map((service, index) => {
             const Icon = service.icon
             return (
               <div
                 key={index}
-                className="service-card group relative w-[340px] md:w-[420px] flex-shrink-0"
+                className="service-card group relative w-full max-w-[420px] lg:w-[420px] flex-shrink-0"
                 onMouseMove={(e) => handleMouseMove(e, index)}
                 onMouseLeave={handleMouseLeave}
               >
                 {/* Card Container */}
-                <div className="relative h-[520px] rounded-[2.5rem] overflow-hidden bg-slate-900 border border-white/10 shadow-2xl transition-all duration-300">
+                <div className="relative h-[500px] md:h-[520px] rounded-[2.5rem] overflow-hidden bg-slate-900 border border-white/10 shadow-2xl transition-all duration-300">
 
                   {/* Glow cursor follower */}
                   <div className="glow-effect absolute w-32 h-32 bg-blue-500/30 rounded-full blur-[64px] pointer-events-none -translate-x-1/2 -translate-y-1/2 z-20 mix-blend-screen opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -256,8 +282,8 @@ export default function ServicesSection() {
                   <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end text-white z-10">
 
                     {/* Top Icon Badge */}
-                    <div className="absolute top-8 right-8 w-14 h-14 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center group-hover:bg-blue-600 group-hover:border-blue-500/50 group-hover:scale-110 transition-all duration-500 shadow-lg">
-                      <Icon className="w-6 h-6 text-white/80 group-hover:text-white transition-colors" />
+                    <div className="absolute top-6 right-6 md:top-8 md:right-8 w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center group-hover:bg-blue-600 group-hover:border-blue-500/50 group-hover:scale-110 transition-all duration-500 shadow-lg">
+                      <Icon className="w-5 h-5 md:w-6 md:h-6 text-white/80 group-hover:text-white transition-colors" />
                     </div>
 
                     <div className="transform transition-transform duration-500 translate-y-8 group-hover:translate-y-0">
@@ -265,18 +291,18 @@ export default function ServicesSection() {
                         SERVICE #{service.number}
                       </span>
 
-                      <h3 className="text-3xl font-bold mb-4 leading-tight group-hover:text-blue-200 transition-colors">
+                      <h3 className="text-2xl md:text-3xl font-bold mb-4 leading-tight group-hover:text-blue-200 transition-colors">
                         {service.title}
                       </h3>
 
-                      <p className="text-slate-300 leading-relaxed mb-6 line-clamp-3 group-hover:line-clamp-none transition-all duration-300 text-base border-l-2 border-white/10 pl-4 group-hover:border-blue-500/50">
+                      <p className="text-slate-300 leading-relaxed mb-6 line-clamp-3 group-hover:line-clamp-none transition-all duration-300 text-sm md:text-base border-l-2 border-white/10 pl-4 group-hover:border-blue-500/50">
                         {service.description}
                       </p>
 
                       {/* Features Badges */}
                       <div className="flex flex-wrap gap-2 mb-8 opacity-0 group-hover:opacity-100 transition-opacity duration-300 delay-100 translate-y-4 group-hover:translate-y-0">
                         {service.features.map((feature, idx) => (
-                          <span key={idx} className="px-3 py-1.5 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-xs font-semibold text-white/90 shadow-lg">
+                          <span key={idx} className="px-2.5 py-1 md:px-3 md:py-1.5 rounded-full bg-white/5 backdrop-blur-md border border-white/10 text-[10px] md:text-xs font-semibold text-white/90 shadow-lg">
                             {feature}
                           </span>
                         ))}
@@ -300,3 +326,4 @@ export default function ServicesSection() {
     </section>
   )
 }
+

@@ -33,7 +33,7 @@ export default function ServicesHero() {
         <section ref={containerRef} className="relative h-[60vh] flex items-center justify-center overflow-hidden bg-slate-900">
             <div className="absolute inset-0 z-0 hero-bg">
                 <img
-                    src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=1920&h=1080&fit=crop&q=80"
+                    src="/hero-security.jpg"
                     alt="Security Background"
                     className="w-full h-full object-cover opacity-30"
                 />
