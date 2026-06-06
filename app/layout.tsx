@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: 'Axis Security - Premier Security Solutions',
   description: 'Professional security solutions with trained officers, world-class technology, and comprehensive supervision. 15+ years of trusted service.',
   metadataBase: new URL('https://axissecurity.in'),
+  verification: {
+    google: 'vMVsihnrZL0_U9i9XZp8Dh8prH94VsUbi78SfSHBmV4',
+  },
   icons: {
     icon: '/images/axis-logo.jpg',
     apple: '/images/axis-logo.jpg',
