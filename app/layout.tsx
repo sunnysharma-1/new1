@@ -4,6 +4,8 @@ import { Geist, Geist_Mono, Playfair_Display } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
+import SmoothScroll from '@/components/smooth-scroll'
+
 const _geist = Geist({ subsets: ["latin"] });
 const _geistMono = Geist_Mono({ subsets: ["latin"] });
 const playfair = Playfair_Display({
@@ -29,6 +31,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`font-sans antialiased ${playfair.variable}`}>
+        <SmoothScroll />
         {children}
         <Analytics />
       </body>

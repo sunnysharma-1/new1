@@ -99,11 +99,13 @@ export default function ServiceScrollShowcase() {
         return () => ctx.revert()
     }, [])
 
+    const HEADER_OFFSET = 96
+
     const scrollToSlide = (id: string, e: React.MouseEvent) => {
         e.preventDefault()
         gsap.to(window, {
             duration: 1.5,
-            scrollTo: { y: id, offsetY: 0 },
+            scrollTo: { y: id, offsetY: HEADER_OFFSET },
             ease: 'power4.inOut'
         })
     }
@@ -165,7 +167,7 @@ export default function ServiceScrollShowcase() {
         <div ref={containerRef} className="bg-white text-slate-900 overflow-hidden">
 
             {/* Intro Section */}
-            <section className="service-intro relative min-h-screen md:h-screen w-full overflow-hidden bg-blue-50/50 flex items-center p-6 md:p-20 pt-24 md:pt-20">
+            <section className="service-intro relative min-h-screen w-full overflow-hidden bg-blue-50/50 flex items-center p-6 md:p-20 pt-28 md:pt-32">
                 <div className="relative z-20 max-w-4xl">
                     <h1 className="intro-title text-[18vw] md:text-[8vw] font-bold leading-[0.9] tracking-tighter text-slate-900 mb-6 md:mb-8">
                         Axis <br /> <span className="text-blue-600">Security</span>
@@ -193,7 +195,7 @@ export default function ServiceScrollShowcase() {
                 </div>
 
                 {/* Scroll Prompt */}
-                <a href="#slide-1" onClick={(e) => scrollToSlide('#slide-1', e)} className="absolute bottom-10 left-10 text-slate-900 font-bold flex items-center gap-2 hover:gap-4 transition-all">
+                <a href="#slide-1" onClick={(e) => scrollToSlide('#slide-1', e)} className="absolute bottom-10 left-6 md:left-10 text-slate-900 font-bold flex items-center gap-2 hover:gap-4 transition-all z-20">
                     Start Tour <ArrowDown className="w-5 h-5" />
                 </a>
             </section>
@@ -207,17 +209,17 @@ export default function ServiceScrollShowcase() {
                     <section
                         key={service.id}
                         id={service.id}
-                        className="service-slide relative min-h-screen md:h-[100vh] min-h-[auto] md:min-h-[850px] flex flex-col md:flex-row overflow-hidden border-t border-white/50"
+                        className="service-slide relative min-h-screen flex flex-col md:flex-row overflow-hidden border-t border-white/50 scroll-mt-28"
                         style={{ backgroundColor: service.bgColor }}
                     >
                         {/* Column 1: Content */}
-                        <div className="relative z-10 w-full md:w-1/2 lg:w-3/5 flex flex-col justify-end p-6 md:p-20 order-2 md:order-1 pointer-events-none md:pointer-events-auto pb-24 md:pb-20">
-                            <div className="max-w-xl mb-4 md:mb-20">
-                                <span className={`slide-content-item block text-5xl md:text-9xl font-bold mb-2 md:mb-4 opacity-20 ${index % 2 === 0 ? 'text-slate-900' : 'text-blue-900'}`}>
+                        <div className="relative z-10 w-full md:w-1/2 lg:w-3/5 flex flex-col justify-center p-6 md:px-16 md:py-12 pt-28 md:pt-32 order-2 md:order-1 pointer-events-none md:pointer-events-auto">
+                            <div className="max-w-xl">
+                                <span className={`slide-content-item block text-4xl md:text-7xl font-bold mb-2 md:mb-3 opacity-20 leading-none ${index % 2 === 0 ? 'text-slate-900' : 'text-blue-900'}`}>
                                     {service.number}
                                 </span>
 
-                                <h2 className="slide-content-item text-3xl md:text-6xl font-bold text-slate-900 mb-4 md:mb-6 leading-tight">
+                                <h2 className="slide-content-item text-3xl md:text-5xl font-bold text-slate-900 mb-4 md:mb-5 leading-tight">
                                     {service.title.split(' ').map((word, i) => (
                                         <span key={i} className="block">{word}</span>
                                     ))}
@@ -264,7 +266,7 @@ export default function ServiceScrollShowcase() {
                         </div>
 
                         {/* Column 2: Image */}
-                        <div className="relative md:relative w-full md:w-1/2 lg:w-2/5 h-[50vh] md:h-full order-1 md:order-2 overflow-hidden">
+                        <div className="relative w-full md:w-1/2 lg:w-2/5 h-[45vh] sm:h-[50vh] md:h-auto md:min-h-screen order-1 md:order-2 overflow-hidden shrink-0">
                             <div className="slide-img-wrap w-full h-[105%] relative -top-[2.5%]">
                                 <img
                                     src={service.image}

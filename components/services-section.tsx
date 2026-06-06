@@ -82,7 +82,8 @@ export default function ServicesSection() {
             start: 'top top',
             end: () => `+=${getScrollAmount() * -1}`,
             pin: true,
-            scrub: 1,
+            scrub: 0.35,
+            anticipatePin: 1,
             invalidateOnRefresh: true,
             onUpdate: (self) => {
               // Update active card based on scroll progress
@@ -200,7 +201,7 @@ export default function ServicesSection() {
   ]
 
   return (
-    <section ref={sectionRef} className="relative bg-slate-950 py-16 md:py-24 overflow-hidden">
+    <section ref={sectionRef} className="relative bg-slate-950 py-16 md:py-20 lg:py-0 overflow-hidden">
       {/* Dynamic Background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(17,24,39,1),_rgba(0,0,0,1))]" />
       <div className="absolute inset-0 opacity-30 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] mix-blend-overlay" />
@@ -209,17 +210,17 @@ export default function ServicesSection() {
       <div className="absolute top-0 left-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-[128px] animate-pulse" />
       <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-indigo-600/20 rounded-full blur-[128px] animate-pulse delay-1000" />
 
-      <div ref={wrapperRef} className="lg:h-screen w-full flex flex-col justify-center overflow-hidden relative z-10">
+      <div ref={wrapperRef} className="lg:h-screen w-full flex flex-col justify-start lg:pt-10 lg:pb-6 overflow-hidden relative z-10">
 
-        <div className="container mx-auto max-w-7xl px-4 md:px-6 relative z-10 mb-8 md:mb-12">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
-            <div className="max-w-3xl">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-sm font-semibold mb-6 backdrop-blur-sm">
+        <div className="container mx-auto max-w-7xl px-4 md:px-6 relative z-10 mb-5 md:mb-6 shrink-0">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-semibold mb-3 backdrop-blur-sm">
                 <div className="w-2 h-2 rounded-full bg-blue-400 animate-pulse shadow-[0_0_8px_rgba(96,165,250,0.6)]" />
                 <span className="tracking-wide uppercase">Elite Protection Services</span>
               </div>
-              <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight tracking-tight">
-                Premium <br />
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight tracking-tight">
+                Premium{' '}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-400 to-purple-400 animate-gradient-x">
                   Security Solutions
                 </span>
@@ -227,15 +228,15 @@ export default function ServicesSection() {
             </div>
 
             {/* Progress Indicator - Desktop Only */}
-            <div className="hidden lg:flex flex-col items-end gap-3">
+            <div className="hidden lg:flex flex-col items-end gap-2 shrink-0">
               <div className="flex items-baseline gap-2">
-                <span className="text-4xl font-bold text-white tabular-nums">
+                <span className="text-2xl font-bold text-white tabular-nums">
                   {String(activeCard + 1).padStart(2, '0')}
                 </span>
-                <span className="text-slate-500 text-2xl">/</span>
-                <span className="text-slate-500 text-2xl tabular-nums">{String(services.length).padStart(2, '0')}</span>
+                <span className="text-slate-500 text-lg">/</span>
+                <span className="text-slate-500 text-lg tabular-nums">{String(services.length).padStart(2, '0')}</span>
               </div>
-              <div className="w-48 h-1.5 bg-slate-800 rounded-full overflow-hidden backdrop-blur-sm">
+              <div className="w-36 h-1 bg-slate-800 rounded-full overflow-hidden backdrop-blur-sm">
                 <div
                   className="h-full bg-gradient-to-r from-blue-500 to-indigo-500 transition-all duration-300 ease-out shadow-[0_0_12px_rgba(59,130,246,0.5)]"
                   style={{ width: `${((activeCard + 1) / services.length) * 100}%` }}
@@ -248,19 +249,19 @@ export default function ServicesSection() {
         {/* Services List */}
         <div
           ref={containerRef}
-          className="flex flex-col lg:flex-row gap-8 lg:gap-12 px-4 md:px-6 lg:px-24 w-full lg:w-max pb-16 pt-8 perspective-1000 items-center lg:items-center"
+          className="flex flex-col lg:flex-row gap-6 lg:gap-8 px-4 md:px-6 lg:px-12 w-full lg:w-max pb-8 lg:pb-0 pt-2 lg:pt-0 perspective-1000 items-center lg:items-stretch lg:flex-1 lg:min-h-0"
         >
           {services.map((service, index) => {
             const Icon = service.icon
             return (
               <div
                 key={index}
-                className="service-card group relative w-full max-w-[420px] lg:w-[420px] flex-shrink-0"
+                className="service-card group relative w-full max-w-[320px] sm:max-w-[340px] lg:w-[320px] xl:w-[340px] flex-shrink-0"
                 onMouseMove={(e) => handleMouseMove(e, index)}
                 onMouseLeave={handleMouseLeave}
               >
                 {/* Card Container */}
-                <div className="relative h-[500px] md:h-[520px] rounded-[2.5rem] overflow-hidden bg-slate-900 border border-white/10 shadow-2xl transition-all duration-300">
+                <div className="relative h-[380px] sm:h-[400px] lg:h-full lg:min-h-[340px] lg:max-h-[420px] rounded-3xl overflow-hidden bg-slate-900 border border-white/10 shadow-2xl transition-all duration-300">
 
                   {/* Glow cursor follower */}
                   <div className="glow-effect absolute w-32 h-32 bg-blue-500/30 rounded-full blur-[64px] pointer-events-none -translate-x-1/2 -translate-y-1/2 z-20 mix-blend-screen opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
@@ -276,26 +277,26 @@ export default function ServicesSection() {
                   </div>
 
                   {/* Dynamic Border Gradient */}
-                  <div className="absolute inset-0 rounded-[2.5rem] border border-white/10 group-hover:border-white/20 transition-colors duration-300 z-10" />
+                  <div className="absolute inset-0 rounded-3xl border border-white/10 group-hover:border-white/20 transition-colors duration-300 z-10" />
 
                   {/* Content Overlay */}
-                  <div className="absolute inset-0 p-8 md:p-10 flex flex-col justify-end text-white z-10">
+                  <div className="absolute inset-0 p-6 md:p-7 flex flex-col justify-end text-white z-10">
 
                     {/* Top Icon Badge */}
-                    <div className="absolute top-6 right-6 md:top-8 md:right-8 w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center group-hover:bg-blue-600 group-hover:border-blue-500/50 group-hover:scale-110 transition-all duration-500 shadow-lg">
-                      <Icon className="w-5 h-5 md:w-6 md:h-6 text-white/80 group-hover:text-white transition-colors" />
+                    <div className="absolute top-5 right-5 w-10 h-10 rounded-xl bg-white/5 backdrop-blur-xl border border-white/10 flex items-center justify-center group-hover:bg-blue-600 group-hover:border-blue-500/50 group-hover:scale-110 transition-all duration-500 shadow-lg">
+                      <Icon className="w-4 h-4 text-white/80 group-hover:text-white transition-colors" />
                     </div>
 
-                    <div className="transform transition-transform duration-500 translate-y-8 group-hover:translate-y-0">
-                      <span className="text-blue-400 font-mono text-sm tracking-wider mb-3 block opacity-80 backdrop-blur-sm w-fit px-2 py-1 rounded bg-blue-500/10 border border-blue-500/20">
+                    <div className="transform transition-transform duration-500 translate-y-4 group-hover:translate-y-0">
+                      <span className="text-blue-400 font-mono text-xs tracking-wider mb-2 block opacity-80 backdrop-blur-sm w-fit px-2 py-1 rounded bg-blue-500/10 border border-blue-500/20">
                         SERVICE #{service.number}
                       </span>
 
-                      <h3 className="text-2xl md:text-3xl font-bold mb-4 leading-tight group-hover:text-blue-200 transition-colors">
+                      <h3 className="text-xl md:text-2xl font-bold mb-3 leading-tight group-hover:text-blue-200 transition-colors">
                         {service.title}
                       </h3>
 
-                      <p className="text-slate-300 leading-relaxed mb-6 line-clamp-3 group-hover:line-clamp-none transition-all duration-300 text-sm md:text-base border-l-2 border-white/10 pl-4 group-hover:border-blue-500/50">
+                      <p className="text-slate-300 leading-relaxed mb-4 line-clamp-3 group-hover:line-clamp-none transition-all duration-300 text-sm border-l-2 border-white/10 pl-3 group-hover:border-blue-500/50">
                         {service.description}
                       </p>
 
