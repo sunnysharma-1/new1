@@ -19,6 +19,9 @@ yarn-error.log*
 # env files
 .env*
 
+# deploy config (contains server credentials)
+deploy.config.json
+
 # vercel
 .vercel
 

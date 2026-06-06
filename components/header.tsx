@@ -124,18 +124,22 @@ export default function Header({ theme = 'dark' }: HeaderProps) {
 
           {/* Right Actions */}
           <div className="flex items-center gap-6">
-            <Link href="/contact" className="hidden md:block">
-              <button className={`flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${isTop ? (theme === 'light' ? 'bg-slate-900 text-white hover:bg-slate-800' : 'bg-white text-slate-900 hover:bg-slate-200') : 'bg-slate-900 text-white hover:bg-slate-800'}`}>
-                Get Quote <ArrowRight className="w-4 h-4" />
-              </button>
+            <Link
+              href="/contact"
+              className={`hidden md:flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 ${isTop ? (theme === 'light' ? 'bg-slate-900 text-white hover:bg-slate-800' : 'bg-white text-slate-900 hover:bg-slate-200') : 'bg-slate-900 text-white hover:bg-slate-800'}`}
+            >
+              Get Quote <ArrowRight className="w-4 h-4" aria-hidden="true" />
             </Link>
 
             {/* Mobile Burger */}
             <button
+              type="button"
               onClick={() => setIsMenuOpen(true)}
+              aria-label="Open navigation menu"
+              aria-expanded={isMenuOpen}
               className={`md:hidden p-2 ${isTop ? (theme === 'light' ? 'text-slate-900' : 'text-white') : 'text-slate-900'}`}
             >
-              <Menu className="w-6 h-6" />
+              <Menu className="w-6 h-6" aria-hidden="true" />
             </button>
           </div>
 
@@ -148,8 +152,13 @@ export default function Header({ theme = 'dark' }: HeaderProps) {
         className="fixed inset-y-0 right-0 w-full md:w-[480px] bg-slate-950/95 backdrop-blur-3xl z-[60] hidden flex-col shadow-2xl"
       >
         <div className="p-8 flex justify-end">
-          <button onClick={() => setIsMenuOpen(false)} className="p-2 text-white/50 hover:text-white transition-colors">
-            <X className="w-8 h-8" />
+          <button
+            type="button"
+            onClick={() => setIsMenuOpen(false)}
+            aria-label="Close navigation menu"
+            className="p-2 text-white/50 hover:text-white transition-colors"
+          >
+            <X className="w-8 h-8" aria-hidden="true" />
           </button>
         </div>
 
@@ -168,10 +177,12 @@ export default function Header({ theme = 'dark' }: HeaderProps) {
         </nav>
 
         <div className="p-12 border-t border-white/10">
-          <Link href="/contact" onClick={() => handleNavClick('/contact')}>
-            <button className="w-full py-4 bg-blue-600 text-white font-bold text-lg rounded-xl hover:bg-blue-500 transition-colors">
-              Start Your Project
-            </button>
+          <Link
+            href="/contact"
+            onClick={() => handleNavClick('/contact')}
+            className="block w-full py-4 bg-blue-600 text-white font-bold text-lg rounded-xl hover:bg-blue-500 transition-colors text-center"
+          >
+            Start Your Project
           </Link>
         </div>
       </div>

@@ -1,0 +1,25 @@
+server {
+    listen 80;
+    server_name your-domain.com www.your-domain.com;
+
+    root /var/www/axis-security;
+    index index.html;
+
+    # Next.js static export
+    location / {
+        try_files $uri $uri.html $uri/ /index.html;
+    }
+
+    location /_next/static/ {
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+    }
+
+    location ~* \.(webp|jpg|jpeg|png|gif|svg|ico|css|js|woff2?)$ {
+        expires 30d;
+        add_header Cache-Control "public";
+    }
+
+    gzip on;
+    gzip_types text/plain text/css application/javascript application/json image/svg+xml;
+}

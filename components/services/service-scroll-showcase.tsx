@@ -6,6 +6,7 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
 import Link from 'next/link'
 import { ArrowRight, ShieldCheck, ArrowDown } from 'lucide-react'
+import OptimizedImage from '@/components/optimized-image'
 
 // Register GSAP plugins
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin)
@@ -182,16 +183,16 @@ export default function ServiceScrollShowcase() {
 
                 {/* Floating Images (Intro) */}
                 <div className="intro-img-1 absolute right-[5%] bottom-[15%] w-[45vw] md:w-[25vw] z-10 shadow-2xl opacity-60 md:opacity-100">
-                    <img src="/images/apex-parade-fog.jpg" alt="Intro 1" className="w-full h-auto" />
+                    <OptimizedImage src="/images/apex-parade-fog.jpg" alt="Security parade in fog" loading="lazy" className="w-full h-auto" />
                 </div>
                 <div className="intro-img-2 absolute left-[40%] top-[10%] w-[35vw] md:w-[20vw] z-0 opacity-40 md:opacity-80 mix-blend-multiply">
-                    <img src="/images/apex-hero-group.jpg" alt="Intro 2" className="w-full h-auto rounded-lg shadow-xl" />
+                    <OptimizedImage src="/images/apex-hero-group.jpg" alt="Axis security team group photo" loading="lazy" className="w-full h-auto rounded-lg shadow-xl" />
                 </div>
                 <div className="intro-img-3 absolute left-[5%] top-[15%] w-[30vw] md:w-[15vw] z-10 shadow-lg -rotate-6 opacity-60 md:opacity-100">
-                    <img src="/images/apex-team-2.jpg" alt="Intro 3" className="w-full h-auto rounded-lg border-4 border-white" />
+                    <OptimizedImage src="/images/apex-team-2.jpg" alt="Security officers in uniform" loading="lazy" className="w-full h-auto rounded-lg border-4 border-white" />
                 </div>
                 <div className="intro-img-4 absolute right-[5%] bottom-[5%] w-[30vw] md:w-[18vw] z-0 opacity-30 md:opacity-60 blur-[1px]">
-                    <img src="/images/apex-warehouse-patrol.jpg" alt="Intro 4" className="w-full h-auto rounded-lg" />
+                    <OptimizedImage src="/images/apex-warehouse-patrol.jpg" alt="Warehouse security patrol" loading="lazy" className="w-full h-auto rounded-lg" />
                 </div>
 
                 {/* Scroll Prompt */}
@@ -242,13 +243,11 @@ export default function ServiceScrollShowcase() {
                                             ))}
                                         </div>
 
-                                        <Link href="/contact">
-                                            <button className="flex items-center gap-4 text-slate-900 font-bold group pointer-events-auto">
-                                                <div className="w-12 h-12 rounded-full border border-slate-900 flex items-center justify-center group-hover:bg-slate-900 group-hover:text-white transition-all">
-                                                    <ArrowRight className="w-5 h-5" />
-                                                </div>
-                                                Request Quote
-                                            </button>
+                                        <Link href="/contact" className="flex items-center gap-4 text-slate-900 font-bold group pointer-events-auto">
+                                            <span className="w-12 h-12 rounded-full border border-slate-900 flex items-center justify-center group-hover:bg-slate-900 group-hover:text-white transition-all">
+                                                <ArrowRight className="w-5 h-5" aria-hidden="true" />
+                                            </span>
+                                            Request Quote
                                         </Link>
                                     </div>
                                 </div>
@@ -268,9 +267,10 @@ export default function ServiceScrollShowcase() {
                         {/* Column 2: Image */}
                         <div className="relative w-full md:w-1/2 lg:w-2/5 h-[45vh] sm:h-[50vh] md:h-auto md:min-h-screen order-1 md:order-2 overflow-hidden shrink-0">
                             <div className="slide-img-wrap w-full h-[105%] relative -top-[2.5%]">
-                                <img
+                                <OptimizedImage
                                     src={service.image}
                                     alt={service.title}
+                                    loading="lazy"
                                     className="w-full h-full object-cover"
                                 />
                             </div>

@@ -5,6 +5,9 @@
   "scripts": {
     "build": "next build",
     "export": "next build",
+    "deploy": "powershell -ExecutionPolicy Bypass -File ./scripts/deploy.ps1 -Build",
+    "deploy:upload": "powershell -ExecutionPolicy Bypass -File ./scripts/deploy.ps1",
+    "optimize-images": "node scripts/optimize-images.mjs",
     "dev": "next dev",
     "lint": "eslint .",
     "start": "next start"
@@ -70,6 +73,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "postcss": "^8.5",
+    "sharp": "^0.34.5",
     "tailwindcss": "^4.1.9",
     "tw-animate-css": "1.3.3",
     "typescript": "^5"

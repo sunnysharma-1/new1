@@ -1,26 +1,31 @@
 import React from "react"
-import type { Metadata } from 'next'
-import { Geist, Geist_Mono, Playfair_Display } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
+import type { Metadata, Viewport } from 'next'
+import { Geist } from 'next/font/google'
 import './globals.css'
 
 import SmoothScroll from '@/components/smooth-scroll'
+import DeferredAnalytics from '@/components/deferred-analytics'
 
-const _geist = Geist({ subsets: ["latin"] });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
-const playfair = Playfair_Display({
-  subsets: ["latin"],
-  variable: '--font-playfair'
-});
+const geist = Geist({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-geist',
+})
 
 export const metadata: Metadata = {
   title: 'Axis Security - Premier Security Solutions',
   description: 'Professional security solutions with trained officers, world-class technology, and comprehensive supervision. 15+ years of trusted service.',
-  generator: 'v0.app',
+  metadataBase: new URL('https://axissecurity.in'),
   icons: {
     icon: '/images/axis-logo.jpg',
     apple: '/images/axis-logo.jpg',
   },
+}
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  themeColor: '#020617',
 }
 
 export default function RootLayout({
@@ -30,10 +35,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`font-sans antialiased ${playfair.variable}`}>
+      <head>
+        <link rel="preload" as="image" href="/images/apex-hero-group.webp" type="image/webp" />
+      </head>
+      <body className={`${geist.variable} font-sans antialiased`}>
         <SmoothScroll />
         {children}
-        <Analytics />
+        <DeferredAnalytics />
       </body>
     </html>
   )

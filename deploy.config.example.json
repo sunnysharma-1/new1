@@ -1,0 +1,7 @@
+{
+  "host": "your-server-ip-or-domain.com",
+  "user": "root",
+  "port": 22,
+  "remotePath": "/var/www/axis-security",
+  "identityFile": "C:\\Users\\yourname\\.ssh\\id_rsa"
+}

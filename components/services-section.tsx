@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { Shield, Users, Eye, Lock, User, Monitor, ChevronRight, Car, Calendar, ArrowRight, Radio } from 'lucide-react'
+import OptimizedImage from '@/components/optimized-image'
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -268,9 +269,10 @@ export default function ServicesSection() {
 
                   {/* Image Background */}
                   <div className="absolute inset-0 z-0">
-                    <img
+                    <OptimizedImage
                       src={service.image}
-                      alt={service.title}
+                      alt={`${service.title} service`}
+                      loading="lazy"
                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 grayscale-[0.2] group-hover:grayscale-0"
                     />
                     <div className="absolute inset-0 bg-gradient-to-b from-slate-900/10 via-slate-900/60 to-slate-900/95" />
